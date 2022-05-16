@@ -1,8 +1,10 @@
 # Jack's Garden
 
-Jack's Garden is an online plant store.
+Jack's Garden is an online plant store which was created with react and react-bootstrap.
 
-![Product Name Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/lisas_portfolio.png)
+You can find the backend code of this project on [https://github.com/2016lisali/jacks_garden_server](https://github.com/2016lisali/jacks_garden_server) and the admin panel code on [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
+
+![Product Name Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/jacks_garden_responsive.jpg)
 
 ## Features
 
@@ -34,6 +36,8 @@ Jack's Garden is an online plant store.
 
 You can find the demo link [here](https://jacksgarden.netlify.app/)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## How to run the app
 
 1. Either clone or download the app and open the folder in the CLI
@@ -60,8 +64,3 @@ git clone https://github.com/2016lisali/jacks_garden
 The webpage will be served at http://localhost:3000
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-// command
-
-1. npx parcel build ./public/index.html
-2. npx serve -s dist
