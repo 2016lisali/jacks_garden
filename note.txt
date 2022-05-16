@@ -1,0 +1,13 @@
+## Memos
+1. build the outlook of the site
+2. build backend apis
+3. if create controller need to check affectedrows
+4. catch (error) {
+    res.status(500).json({ `Something went wrong. + ${error}` });
+
+5.async/await is part of ECMAScript 2017 and is not supported in Internet Explorer and older browsers, so use with caution.
+6.react-file-base64'
+7. Access-Control-Allow-Origin: <origin>
+8. using localstorage for user data, if user doesn't logout, how the system know the token has expired??
+
+9. serviceworks.js
