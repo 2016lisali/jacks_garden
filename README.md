@@ -1,8 +1,8 @@
 # Jack's Garden
 
-Jack's Garden is an online plant store
+Jack's Garden is an online plant store.
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/2016lisali/lisali/blob/main/public/assets/lisas_portfolio.png)
+![Product Name Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/lisas_portfolio.png)
 
 ## Features
 
@@ -29,6 +29,10 @@ Jack's Garden is an online plant store
 - parcel
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+## Try it
+
+You can find the demo link [here](https://jacksgarden.netlify.app/)
 
 ## How to run the app
 
