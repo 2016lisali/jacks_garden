@@ -2,7 +2,7 @@
 
 Jack's Garden is an online plant store
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/2016lisali/lisali/blob/main/public/assets/lisas_portfolio.png)
 
 ## Features
 
@@ -32,7 +32,12 @@ Jack's Garden is an online plant store
 
 ## How to run the app
 
-1. Either fork or download the app and open the folder in the cli
+1. Either clone or download the app and open the folder in the CLI
+
+```sh
+git clone https://github.com/2016lisali/jacks_garden
+```
+
 2. Install all dependencies
    ```sh
    npm install
@@ -43,7 +48,7 @@ Jack's Garden is an online plant store
     PORT = YOUR PORT NUMBER
     REACT_APP_BASE_URL = https://jacks-garden-server.herokuapp.com this is the address of the server
    ```
-4. Start client server by cd to client folder in terminal then
+4. Cd to client folder in terminal and start client server
    ```sh
    npm start
    ```
