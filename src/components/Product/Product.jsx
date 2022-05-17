@@ -52,6 +52,7 @@ const Product = () => {
     cart.products.forEach(item => {
       item.productId === product.productId && setQuantityInCart(item.quantity)
     })
+    // eslint-disable-next-line
   }, [dispatch, cart.total]);
 
   const handleQuantity = (type) => {

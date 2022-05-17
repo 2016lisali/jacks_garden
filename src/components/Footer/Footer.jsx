@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap'
-import { EnvelopeFill, Facebook, GeoAltFill, Instagram, TelephoneFill, Youtube } from 'react-bootstrap-icons'
+import { EnvelopeFill, Facebook, GeoAltFill, Instagram, Question, TelephoneFill, Youtube } from 'react-bootstrap-icons'
 import Newsletter from './Newsletter';
 
 const Footer = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
               <li className="col list-unstyled mb-2"><Link to="/cart">Cart</Link></li>
               <li className="col list-unstyled mb-2"><Link to="/">Shipping</Link></li>
               <li className="col list-unstyled mb-2"><Link to="/">Terms</Link></li>
-              <li className="col list-unstyled mb-2"><Link to="/">Contact Us</Link></li>
+              <li className="col list-unstyled mb-2"><Link to="/help"><Question size="20px" alt="link to the cart page" />help</Link></li>
             </ul>
           </Col>
           <Col sm className='pb-4 d-flex flex-column'>

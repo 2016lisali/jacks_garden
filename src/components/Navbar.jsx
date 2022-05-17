@@ -47,6 +47,7 @@ const TopNav = () => {
   // get Cart details
   useEffect(() => {
     user && getCartDetails(user?.userId, dispatch)
+    // eslint-disable-next-line
   }, [user, cart.quantityInCart]) // delete dispatch
 
   const handleSearch = (data) => {

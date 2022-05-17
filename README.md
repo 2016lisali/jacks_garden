@@ -69,13 +69,13 @@ You can find the demo [here](https://jacksgarden.netlify.app/)
    npm start
    ```
 
-The webpage will be served at http://localhost:3000
+The webpage will be served at http://localhost:YOUR PORT NUMBER
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 
-- [x] Add Ny Account page
+- [x] Add 'My Account' page
 - [x] Add back to top links
 - [ ] Add Filter and Sort function for product page
 - [ ] Add update user details funtionality

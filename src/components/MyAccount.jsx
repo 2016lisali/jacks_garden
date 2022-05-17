@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Container, Button, Modal, Table } from "react-bootstrap";
 import SpinnerDiv from "./SpinnerDiv";
-import { getOrderDetailsByOrderId, getOrderDetailsByUserId } from "../api/api";
+import { getOrderDetailsByUserId } from "../api/api";
 
 const MyAccount = () => {
   const user = useSelector(state => state.user.currentUser);
@@ -11,12 +11,14 @@ const MyAccount = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [modalState, setModalState] = useState({
     show: false,
+    target: "",
     title: "",
     content: "",
   });
   const handleClose = () => setModalState({ ...modalState, "show": false });
   const handleShow = async (target, title, content) => {
     setModalState({
+      "target": target,
       "title": title,
       "content": content,
       "show": true
@@ -60,7 +62,7 @@ const MyAccount = () => {
         <p><span className="fw-bolder me-2">Last Name:</span>{user?.lastName}</p>
         <p><span className="fw-bolder me-2">Email:</span>{user?.email}</p>
         <Button variant="link" className="text-decoration-underline ps-0"
-          onClick={() => handleShow(target = "userDetails", title = "Personal Details", content = "here should be personal details")}>Change my personal details</Button>
+          onClick={() => handleShow("userDetails", "Personal Details", "here should be personal details")}>Change my personal details</Button>
       </div>
       <div className="border border-2 shadow-sm p-3 my-4">
         <h3>My Orders</h3>
@@ -85,7 +87,7 @@ const MyAccount = () => {
                   <td>{order.orderStatus}</td>
                   <td>${order.orderAmount / 100}</td>
                   <td>
-                    <Button variant="light" onClick={() => handleShow(target = "orderDetails", title = "Order Details", content = "here should be order details")}>
+                    <Button variant="light" onClick={() => handleShow("orderDetails", "Order Details", "here should be order details")}>
                       Details
                     </Button>
                   </td>

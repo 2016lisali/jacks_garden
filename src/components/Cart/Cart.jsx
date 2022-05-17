@@ -53,7 +53,7 @@ const Cart = () => {
           comment: "",
         });
         const orderRes = await createOrder(orderData);
-        cart.products.map(product => {
+        cart.products.forEach(product => {
           createOrderDetails({ orderId: orderRes.data.insertId, productId: product.productId, quantity: product.quantity, priceEach: product.price })
         });
         const { address, email, phone, name } = res.data.billing_details;
@@ -69,6 +69,7 @@ const Cart = () => {
       }
     }
     stripeToken && cart.total > 1 && makeRequest();
+    // eslint-disable-next-line
   }, [stripeToken, navigate, cart.total]);
 
   return (
