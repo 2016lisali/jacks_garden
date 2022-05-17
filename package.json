@@ -29,7 +29,8 @@
   },
   "scripts": {
     "start": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html",
+    "build": "parcel build ./public/index.html && cp _redirects dist/_redirects"
+    ",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
