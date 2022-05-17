@@ -16,9 +16,9 @@ const schema = yup.object({
   lastName: yup.string().max(25, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
     "upper case or lower case letters only.").required(),
   email: yup.string().email().required(),
-  password: yup.string().matches(/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+*!=]).*$/,
+  password: yup.string().matches(/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+*!=.]).*$/,
     `Minimum 8 characters, contain at least one uppercase, one lowercase, one number and one symbol
-     from (@#$%^&+*!=)`).required(),
+     from (@#$%^&+*!=.)`).required(),
   confirmPassword: yup.string().required().oneOf([yup.ref('password'), null], 'Passwords must match'),
 }).required();
 
@@ -60,7 +60,7 @@ const Register = () => {
                 <FormInput register={register} errors={errors} name="email" type="email" formattedName="Email" tips="must be a valid email address" />
               </Col>
               <Col md>
-                <FormInput register={register} errors={errors} name="password" type="password" formattedName="Password" tips="Minimum 8 characters, at least one uppercase letter, one lowercase letter and one number" />
+                <FormInput register={register} errors={errors} name="password" type="password" formattedName="Password" tips="Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one symbol from #$%^&+*!=." />
                 <FormInput register={register} errors={errors} name="confirmPassword" type="password" formattedName="Confirm Password" tips="Passwords must match" />
               </Col>
             </Row>

@@ -20,8 +20,7 @@ const Newsletter = () => {
       setIsSucceed(true);
     } catch (error) {
       setIsFetching(false);
-      alert("Can not add your email to the mailing list, please try later");
-      // console.log("error.response", error.response);
+      alert(error.response.data || "Can not add your email to the mailing list, please try later");
     }
   }
 

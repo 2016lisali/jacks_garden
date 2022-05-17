@@ -2,6 +2,8 @@
 
 Jack's Garden is an online plant store which was created with react and react-bootstrap.
 
+The customer can register, login, logout to the site, view products, add product to the cart and place online orders.
+
 You can find the backend code of this project on [https://github.com/2016lisali/jacks_garden_server](https://github.com/2016lisali/jacks_garden_server) and the admin panel code on [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
 
 ![Product Name Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/jacks_garden_responsive.jpg)
@@ -21,20 +23,26 @@ You can find the backend code of this project on [https://github.com/2016lisali/
 - Mysql database
 - Express.js
 - React
+- React-router-dom
 - Node.js
 - Redux
-- Serviceworkers
+- Redux/toolkit
+- Service Workers
 - React-bootstrap
 - Sass
 - JWT
 - React-hook-form
 - parcel
+- parcel/service-worker
+- yup
+- axios
+- bcrypt
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Try it
 
-You can find the demo link [here](https://jacksgarden.netlify.app/)
+You can find the demo [here](https://jacksgarden.netlify.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -42,15 +50,15 @@ You can find the demo link [here](https://jacksgarden.netlify.app/)
 
 1. Either clone or download the app and open the folder in the CLI
 
-```sh
-git clone https://github.com/2016lisali/jacks_garden
-```
+   ```sh
+   git clone https://github.com/2016lisali/jacks_garden
+   ```
 
 2. Install all dependencies
    ```sh
    npm install
    ```
-3. Create an `.env` file and enter following fields
+3. Create a `.env` file and enter following fields
    ```env
     REACT_APP_STRIPE_KEY = YOUR STRIPE KEY
     PORT = YOUR PORT NUMBER
@@ -62,5 +70,17 @@ git clone https://github.com/2016lisali/jacks_garden
    ```
 
 The webpage will be served at http://localhost:3000
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Roadmap
+
+- [x] Add Ny Account page
+- [x] Add back to top links
+- [ ] Add Filter and Sort function for product page
+- [ ] Add update user details funtionality
+- [ ] Update Stripe
+- [ ] Display more images for each product
+- [ ] Add 'You may also limk' section in product page
 
 <p align="right">(<a href="#top">back to top</a>)</p>

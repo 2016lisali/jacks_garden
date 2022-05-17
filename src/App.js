@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Announcement, BackToTopBtn, Cart, Footer, Home, Login, MyAccount, Navbar, Register, Product, Products } from './components/index.js';
+import { Announcement, BackToTopBtn, Cart, Footer, Home, Login, MyAccount, Navbar, Register, Product, Products, NotFound }
+  from './components/index.js';
 import "./app.scss";
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/products/search" exact element={<Products />} />
         <Route path="/account" exact element={<MyAccount />} />
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
       <BackToTopBtn />
