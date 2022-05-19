@@ -42,7 +42,7 @@ const Cart = () => {
       try {
         const res = await makePayment({
           tokenId: stripeToken.id,
-          amount: (cart.total >= 150) ? cart.total : (cart.total + 9.95),
+          amount: (cart.total >= 150) ? cart.total.toFixed(2) : (cart.total + 9.95).toFixed(2),
         });
         const orderData = ({
           userId: currentUser.userId,
@@ -58,6 +58,7 @@ const Cart = () => {
         });
         const { address, email, phone, name } = res.data.billing_details;
         const billingDetails = { orderId: orderRes.data.insertId, name: name, email: email, phone: phone, ...address }
+        console.log("billingDetails", billingDetails);
         await createOrderBillingDetails(billingDetails);
         setIsSuccess(true);
         handleEmptyCart();
@@ -98,8 +99,8 @@ const Cart = () => {
             <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty Cart</Button>
           </div>
         </Col>
-        <Col md={4} className="order-summary border rounded d-flex flex-column justity-content-between py-3 px-4">
-          {isSuccess ? <SuccessDiv message="Your order has been placed, direct you to homepage now." /> : <>
+        <Col md={4} className="order-summary border rounded d-flex flex-column justify-content-between py-3 px-4">
+          {isSuccess ? <SuccessDiv message="Your order has been placed, redirecting you to homepage now." /> : <>
             <CartSummary cart={cart} />
             <StripeCheckout
               name="Jack's Garden"

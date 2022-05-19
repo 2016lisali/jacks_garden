@@ -7,7 +7,6 @@ import { getOrderDetailsByUserId } from "../api/api";
 const MyAccount = () => {
   const user = useSelector(state => state.user.currentUser);
   const [myOrder, setMyOrder] = useState([]);
-  console.log(myOrder);
   const [isFetching, setIsFetching] = useState(false);
   const [modalState, setModalState] = useState({
     show: false,

@@ -17,11 +17,9 @@ const TopNav = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const user = useSelector(state => state.user.currentUser);
   const cart = useSelector(state => state.cart);
-  console.log("user", user);
 
   // check if users token is expired
   useEffect(() => {
-    console.log("navbar use Effect");
     // Check localstorage if user choose darkmode 
     const currentUser = JSON.parse(localStorage.getItem('jg_user'))?.user;
     const token = currentUser?.token;

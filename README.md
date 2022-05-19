@@ -1,12 +1,12 @@
-# Jack's Garden
+# Jack's Garden Online Store
 
-Jack's Garden is an online plant store which was created with react and react-bootstrap.
+Jack's Garden is an online plant store created with react and react-bootstrap.
 
 The customer can register, login, logout to the site, view products, add product to the cart and place online orders.
 
 You can find the backend code of this project on [https://github.com/2016lisali/jacks_garden_server](https://github.com/2016lisali/jacks_garden_server) and the admin panel code on [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
 
-![Product Name Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/jacks_garden_responsive.jpg)
+![Project Screen Shot](https://github.com/2016lisali/lisali/blob/main/public/assets/jacks_garden_responsive.jpg)
 
 ## Features
 
@@ -76,11 +76,13 @@ The webpage will be served at http://localhost:YOUR PORT NUMBER
 ## Roadmap
 
 - [x] Add 'My Account' page
-- [x] Add back to top links
+- [x] Add back to top buttons
+- [x] Add 'Help' page
 - [ ] Add Filter and Sort function for product page
-- [ ] Add update user details funtionality
+- [ ] Add functionality for anonymous user to add product to shopping cart
+- [ ] Add update user details
 - [ ] Update Stripe
 - [ ] Display more images for each product
-- [ ] Add 'You may also limk' section in product page
+- [ ] Add 'You may also like' section in product page
 
 <p align="right">(<a href="#top">back to top</a>)</p>
