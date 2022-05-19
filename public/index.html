@@ -23,7 +23,6 @@
   <script type="module" src="../src/index.js"></script>
   <script type="module">
     if ('serviceWorker' in navigator) {
-      console.log("import.meta", import.meta.url);
       window.addEventListener('load', () => {
         navigator.serviceWorker.register(
           new URL('./service_worker.js',
