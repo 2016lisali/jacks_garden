@@ -26,7 +26,7 @@
       window.addEventListener('load', () => {
         navigator.serviceWorker.register(
           new URL('./service_worker.js',
-            "https://jacksgarden.netlify.app"),
+            import.meta.url),
           { type: "module" })
           .then((reg) => console.log('Success: ', reg.scope))
           .catch((err) => console.log('Failure: ', err));
