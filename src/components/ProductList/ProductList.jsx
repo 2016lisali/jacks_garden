@@ -41,7 +41,6 @@ const ProductList = ({ cat, searchQuery }) => {
         else {
           res = await getAllProducts();
         }
-        console.log(res.data);
         cat === "recommended" ? setProducts(res?.data.slice(0, 4)) : setProducts(res?.data)
         setIsFetching(false)
       } catch (error) {

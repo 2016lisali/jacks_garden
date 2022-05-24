@@ -9,13 +9,15 @@ const Product = ({ product }) => {
       <div className="img-container mb-3">
         <Image src={URL + product.productImage} className="rounded w-100" alt={product.productName} />
         <Link to={`/product/${product.productId}`} state={product}>
-          <div className="overlay d-flex align-items-center justify-content-center">
-            <Search color="white" size="30px" alt="link to product page" />
+          <div className="overlay d-flex flex-column align-items-center justify-content-center">
+            <Search color="white" size="30px" />
+            <p>VIEW</p>
           </div>
         </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center px-1">
-        <h5>{product.productName} <span className="fw-bolder">$ {product.price}</span></h5>
+        <h4>{product.productName} </h4>
+        <h5 className="fw-bolder text-end" style={{ minWidth: "54px" }}>$ {product.price}</h5>
       </div>
     </Col>
   )

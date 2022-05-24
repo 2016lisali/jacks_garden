@@ -86,7 +86,7 @@ const TopNav = () => {
             <ReactTooltip effect="solid" />
             {!user ?
               <Button variant="link" href="/login" className="px-2" data-tip="Login/Register" title="Link to login/register page">
-                <PersonFill size="20px" alt="link to the login/register page" />
+                <PersonFill size="20px" alt="link to the login/register page" /><span className='d-none'>login page</span>
               </Button> :
               <NavDropdown title={<PersonFill size="20px" alt="link to the login/register page" />} id="basic-nav-dropdown">
                 <NavDropdown.Item href="/account" className="small">MY ACCOUNT</NavDropdown.Item>
