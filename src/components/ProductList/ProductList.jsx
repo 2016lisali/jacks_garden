@@ -51,6 +51,7 @@ const ProductList = ({ cat, searchQuery }) => {
     }
     getProducts();
   }, [cat, searchQuery])
+  console.log(products);
   return (
     <Container fluid="xl" className="productList-container px-0 py-4">
       <h3 className="px-1 mt-4 fw-bold">{title}</h3>
