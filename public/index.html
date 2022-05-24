@@ -22,16 +22,16 @@
 
   <script type="module" src="../src/index.js"></script>
   <script type="module">
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', () => {
-    //     navigator.serviceWorker.register(
-    //       new URL('./service_worker.js',
-    //         import.meta.url),
-    //       { type: "module" })
-    //       .then((reg) => console.log('Success: ', reg.scope))
-    //       .catch((err) => console.log('Failure: ', err));
-    //   })
-    // }
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(
+          new URL('./service_worker.js',
+            import.meta.url),
+          { type: "module" })
+          .then((reg) => console.log('Success: ', reg.scope))
+          .catch((err) => console.log('Failure: ', err));
+      })
+    }
     // if ('serviceWorker' in navigator) {
     //   window.addEventListener('load', () => {
     //     navigator.serviceWorker.unregister()

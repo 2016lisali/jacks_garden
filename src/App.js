@@ -20,7 +20,7 @@ function App() {
         <Route path="/products/search" exact element={<Products />} />
         <Route path="/account" exact element={<MyAccount />} />
         <Route path="/help" exact element={<Help />} />
-        <Route path="*" element={<NotFound />}></Route>
+        {/* <Route path="*" element={<NotFound />}></Route> */}
       </Routes>
       <Footer />
       <BackToTopBtn />
