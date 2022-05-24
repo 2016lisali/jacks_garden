@@ -38,8 +38,15 @@ const Login = () => {
             <Form.Control
               type="password"
               placeholder="Password"
-              {...register("password", { required: true })} />
-            <p className="text-danger">{errors.password && "Please enter a password"}</p>
+              {...register("password", {
+                pattern: {
+                  value: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+*!=.]).*$/,
+                  message: `Password must be minimum 8 characters, contain at least one uppercase, one lowercase, one number and one symbol
+                            from (@#$%^&+*!=.)`
+                },
+                required: 'Please enter your password',
+              })} />
+            <p className="text-danger">{errors.password && errors.password.message}</p>
           </FloatingLabel>
           <Link to="/account"><p>Forgot password?</p></Link>
           <p>Not have an account yet? <Link to="/register"><b>Register Here</b></Link></p>

@@ -12,9 +12,9 @@ import SpinnerDiv from "./SpinnerDiv";
 
 const schema = yup.object({
   firstName: yup.string().max(25, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
-    "upper case or lower case letters only.").required(),
+    "upper case and lower case letters only.").required(),
   lastName: yup.string().max(25, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
-    "upper case or lower case letters only.").required(),
+    "upper case and lower case letters only.").required(),
   email: yup.string().email().required(),
   password: yup.string().matches(/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+*!=.]).*$/,
     `Minimum 8 characters, contain at least one uppercase, one lowercase, one number and one symbol

@@ -31,9 +31,9 @@ const Footer = () => {
           </Col>
           <Col sm className='pb-4 d-flex flex-column'>
             <p className='fw-bolder fs-5 mb-2'>Contact</p>
-            <div className="mb-2"><GeoAltFill className='me-2' />18 Fenimore St, Wishart QLD</div>
+            <div className="mb-2"><GeoAltFill className='me-2' />18 Lucky St, Wishart QLD</div>
             <a className="mb-2" href="mailto: admin@jacksgarden.com"><EnvelopeFill className='me-2' />jack@jacksgarden.com</a>
-            <a href="tel:+0449260373"><TelephoneFill className='me-2' />+61 044 926 0373</a>
+            <a href="tel:+0449260373"><TelephoneFill className='me-2' />+61 044 912 3456</a>
           </Col>
         </Row>
         <hr />

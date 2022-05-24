@@ -13,7 +13,7 @@ const Product = () => {
   const [isProductInCart, setIsProductInCart] = useState(false);
   const [quantityInCart, setQuantityInCart] = useState(0);
   const URL = process.env.REACT_APP_BASE_URL;
-  const currentUser = useSelector(state => state.user);
+  const currentUser = useSelector(state => state.user.currentUser);
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -28,7 +28,9 @@ const Product = () => {
   const handleAddToCart = async () => {
     setIsFetching(true);
     try {
+      console.log(currentUser);
       if (currentUser) {
+        console.log("here");
         if (!isProductInCart) {
           await addProductToCart({ cartId: cart.cartId, productId: product.productId, price: product.price, quantity }, dispatch)
         } else {
@@ -36,10 +38,14 @@ const Product = () => {
         }
         setIsFetching(false);
         setIsSuccess(true);
+      } else {
+        setIsFetching(false)
+        alert("Please login first.")
       };
     } catch (error) {
       console.log(error);
       setIsFetching(false);
+      setIsSuccess(false);
     }
 
   };

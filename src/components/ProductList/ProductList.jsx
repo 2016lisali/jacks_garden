@@ -44,9 +44,8 @@ const ProductList = ({ cat, searchQuery }) => {
         cat === "recommended" ? setProducts(res?.data.slice(0, 4)) : setProducts(res?.data)
         setIsFetching(false)
       } catch (error) {
-        console.log(error);
         setIsFetching(false)
-        setTitle(`Something went wrong, please try later.`)
+        setTitle(error.response ? error.response?.data : `Something went wrong, please try later.`)
         setProducts([])
       }
     }

@@ -27,7 +27,7 @@ const Categories = () => {
   return (
     <Container fluid className='category-container d-flex flex-column justify-content-between align-items-center px-0 py-5' style={{ backgroundColor: "var(--colorYellow)" }} >
       <div className="container-xl px-0 pb-2 d-flex flex-row justify-content-between align-items-center">
-        <p className="ps-4 fs-3 fw-bold mb-0">Shop plants by categories</p>
+        <h3 className="ps-4 fw-bold mb-0">Shop plants by categories</h3>
         <Button variant="link" className="fw-bolder">Shop All Plants <ChevronRight /></Button>
       </div>
       <Row className="container-xl px-0">

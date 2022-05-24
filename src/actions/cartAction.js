@@ -24,7 +24,7 @@ export const getCartDetails = async (userId, dispatch) => {
     }
     dispatch(getCart(cart))
   } catch (error) {
-    console.log(error.response.data);
+    console.log(error.response?.data);
   }
 }
 export const addProductToCart = async (data, dispatch) => {

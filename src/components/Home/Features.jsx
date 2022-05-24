@@ -7,7 +7,7 @@ const Features = () => {
         <Col md={4} className="d-flex align-items-center justify-content-center px-5">
           <Truck size="40px" color="#D68C45" />
           <div className="ps-4">
-            <h5>Delivery from $15.00</h5>
+            <h5>Local Pickup</h5>
             <p>Click and collect from our nursery</p>
           </div>
         </Col>

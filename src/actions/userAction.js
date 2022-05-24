@@ -11,6 +11,7 @@ export const login = async (formData, dispatch, setIsSuccess, navigate) => {
       navigate("/")
     }, 3000);
   } catch (error) {
-    alert(error.response?.data);
+    let errorMsg = error.response.data
+    alert(errorMsg.errors ? errorMsg.errors[0].msg : errorMsg);
   }
 }
