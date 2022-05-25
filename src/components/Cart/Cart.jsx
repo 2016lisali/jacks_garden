@@ -8,6 +8,7 @@ import { updateProductQuantity, removeProductFromCart, emptyShoppingCart } from 
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
 import SuccessDiv from "../SuccessDiv";
+import Breadcrumbs from "../Breadcrumbs";
 
 const KEY = process.env.REACT_APP_STRIPE_KEY;
 
@@ -75,6 +76,7 @@ const Cart = () => {
 
   return (
     <Container fluid="xl" className="cart p-4">
+      <Breadcrumbs />
       <Row>
         <Col md={8} className="cart-details py-3 mb-4">
           <h2>YOUR CART</h2>
@@ -95,7 +97,7 @@ const Cart = () => {
             </tbody>
           </Table>
           <div className="d-flex justify-content-between">
-            <Button variant="outline-success" href="/" >Continue Shopping</Button>
+            <Button variant="outline-success" href="/products" >Continue Shopping</Button>
             <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty Cart</Button>
           </div>
         </Col>

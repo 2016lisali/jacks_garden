@@ -13,3 +13,4 @@ export { default as SpinnerDiv } from './SpinnerDiv';
 export { default as FormInput } from './FormInput';
 export { default as MyAccount } from './MyAccount';
 export { default as NotFound } from './404';
+export { default as Breadcrumbs } from './Breadcrumbs';

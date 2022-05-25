@@ -5,6 +5,7 @@ import { Button, Container, Col, Image, Row } from "react-bootstrap";
 import { Cart3, Dash, Plus } from "react-bootstrap-icons";
 import { getCartDetails, addProductToCart, updateProductQuantity } from "../../actions/cartAction";
 import SpinnerDiv from "../SpinnerDiv";
+import Breadcrumbs from "../Breadcrumbs";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
@@ -70,7 +71,8 @@ const Product = () => {
   }
 
   return (
-    <Container fluid="xl" className="product-container">
+    <Container fluid="xl" className="product-container py-4">
+      <Breadcrumbs />
       <Row className="py-4">
         <Col sm={6} className="img-col p-3">
           <Image src={`${URL}${product?.productImage}`} className="w-100" alt={product.productName} />

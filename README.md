@@ -75,10 +75,9 @@ The webpage will be served at http://localhost:YOUR_PORT_NUMBER
 
 ## Roadmap
 
-- [x] Add 'My Account' page
-- [x] Add back to top buttons
-- [x] Add 'Help' page
-- [ ] Add Filter and Sort function for product list (30-06-2022)
+- [x] Add 'Help' page (22/05/2022)
+- [x] Add Breadcrumb (25/05/2022)
+- [x] Add Sort function for product list (25-05-2022)
 - [ ] Allow anonymous user to add product to shopping cart (15-07-2022)
 - [ ] Add update user details functionality in 'my Account' page (15-07-2022)
 - [ ] Update Stripe (31-07-2022)

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Container, Button, Modal, Table } from "react-bootstrap";
 import SpinnerDiv from "./SpinnerDiv";
+import Breadcrumbs from "./Breadcrumbs";
 import { getOrderDetailsByUserId } from "../api/api";
 
 const MyAccount = () => {
@@ -43,7 +44,6 @@ const MyAccount = () => {
       setIsFetching(true)
       try {
         const result = await getOrderDetailsByUserId(userId)
-        console.log(result);
         result.data && setMyOrder(result.data)
         setIsFetching(false)
       } catch (error) {
@@ -51,10 +51,11 @@ const MyAccount = () => {
         console.log(error.response.data);
       }
     }
-    getOrderDetails(user?.userId)
+    user && getOrderDetails(user.userId)
   }, [user]);
   return (
     <Container fluid="xl">
+      <Breadcrumbs />
       <div className="border border-2 shadow-sm p-3 mt-4">
         <h3 className="my-3">Personal Details</h3>
         <p><span className="fw-bolder me-2">First Name:</span>{user?.firstName}</p>

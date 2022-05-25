@@ -15,14 +15,14 @@ const Features = () => {
           <Flower1 size="50px" color="#D68C45" />
           <div className="ps-4">
             <h5>Shipping Locations</h5>
-            <p>We ship all our products around Brisbane. Please contact us if you’re after a special order.</p>
+            <p>We ship all our products around Brisbane. </p>
           </div>
         </Col>
         <Col md={4} className="d-flex align-items-center justify-content-center px-5">
           <SuitHeart size="40px" color="#D68C45" />
           <div className="ps-4">
             <h5>Our Guarantee</h5>
-            <p>We only provide the best quality plants for our customers.</p>
+            <p>We only provide the best quality plants.</p>
           </div>
         </Col>
       </Row>
