@@ -7,7 +7,7 @@ import decode from 'jwt-decode';
 import { Badge, Navbar, Nav, Form, FormControl, Button, Container, NavDropdown } from 'react-bootstrap';
 import { Cart3, PersonFill } from 'react-bootstrap-icons';
 import { emptyCart } from '../redux/cartReducer';
-import { signin, logout } from '../redux/userReducer';
+import { loginSuccess, logout } from '../redux/userReducer';
 import { getCartDetails } from '../actions/cartAction';
 
 const TopNav = () => {
@@ -29,7 +29,7 @@ const TopNav = () => {
         handleLogout()
       } else {
         const { userId, firstName, lastName, email, isAdmin } = currentUser
-        dispatch(signin({ userId, firstName, lastName, email, isAdmin }))
+        dispatch(loginSuccess({ userId, firstName, lastName, email, isAdmin }))
       }
     }
     // eslint-disable-next-line

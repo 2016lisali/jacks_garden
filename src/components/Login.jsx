@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, FloatingLabel, Form } from "react-bootstrap";
@@ -9,8 +8,8 @@ import SpinnerDiv from "./SpinnerDiv";
 
 
 const Login = () => {
-  const isFetching = useSelector(state => state.user?.isFetching);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const isFetching = useSelector(state => state.user.isFetching);
+  const isSuccess = useSelector(state => state.user.isSuccess);
   const currentUser = useSelector(state => state.user.currentUser)
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +17,7 @@ const Login = () => {
 
   const handleLogin = (data) => {
     const formDataJSON = JSON.stringify(data)
-    login(formDataJSON, dispatch, setIsSuccess, navigate)
+    login(formDataJSON, dispatch, navigate)
   }
 
   return (

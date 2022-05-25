@@ -72,7 +72,7 @@ const MyAccount = () => {
             <thead className="bg-success small bg-opacity-10">
               <tr>
                 <th>ORDERID</th>
-                <th>DATE</th>
+                <th className="d-none d-md-table-cell">DATE</th>
                 <th>STATUS</th>
                 <th>AMOUNT</th>
                 <th></th>
@@ -83,7 +83,7 @@ const MyAccount = () => {
                 <tr><td> You haven't placed any order yet</td></tr> :
                 myOrder?.map(order => <tr key={order.orderId}>
                   <td>{order.orderId}</td>
-                  <td>{order.orderDate.split("T")[0]}</td>
+                  <td className="d-none d-md-table-cell">{order.orderDate.split("T")[0]}</td>
                   <td>{order.orderStatus}</td>
                   <td>${order.orderAmount / 100}</td>
                   <td>

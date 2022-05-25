@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 const Breadcrumbs = () => {
   const location = useLocation();
   const pages = location.pathname.split("/").splice(1)
-  console.log(pages);
 
   return (
     pages.length > 1 && (

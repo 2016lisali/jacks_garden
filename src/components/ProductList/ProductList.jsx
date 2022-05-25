@@ -4,12 +4,15 @@ import { getAllProducts, getProductBySearch } from "../../api/api.js";
 import Product from "./Product";
 import SpinnerDiv from "../SpinnerDiv";
 import Breadcrumbs from "../Breadcrumbs"
+import { useLocation } from "react-router-dom";
 
 const ProductList = ({ cat, searchQuery }) => {
   const [products, setProducts] = useState([]);
   const [title, setTitle] = useState("");
   const [isFetching, setIsFetching] = useState()
-
+  const location = useLocation();
+  const currentPage = location.pathname;
+  console.log(currentPage);
   const handleSort = (e) => {
     const value = e.target.value
     console.log(products);
@@ -76,12 +79,13 @@ const ProductList = ({ cat, searchQuery }) => {
       <Breadcrumbs />
       <div className="d-flex justify-content-between align-items-center px-2">
         <h3 className="px-1 my-0 fw-bold">{title}</h3>
-        <Form.Select size="sm" style={{ width: "100px" }} onChange={handleSort}>
-          <option value="all">sort</option>
-          <option value="price_low">price (low to high)</option>
-          <option value="price_high">price (high to low)</option>
-          <option value="latest">latest</option>
-        </Form.Select>
+        {currentPage !== "/" &&
+          <Form.Select size="sm" style={{ width: "100px" }} onChange={handleSort}>
+            <option value="all">sort</option>
+            <option value="price_low">price (low to high)</option>
+            <option value="price_high">price (high to low)</option>
+            <option value="latest">latest</option>
+          </Form.Select>}
       </div>
       {isFetching ?
         <SpinnerDiv /> :
