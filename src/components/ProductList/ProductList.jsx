@@ -90,7 +90,7 @@ const ProductList = ({ cat, searchQuery }) => {
       {isFetching ?
         <SpinnerDiv /> :
         (<Row className="mx-0">
-          {products.map(product => (
+          {products && products.map(product => (
             <Product product={product} key={product.productId} />
           ))}</Row>)}
     </Container>

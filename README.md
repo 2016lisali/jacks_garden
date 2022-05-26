@@ -13,8 +13,8 @@ You can find the backend code of this project on [https://github.com/2016lisali/
 - PWA site, load fast, and can be installed as a mobile app
 - with dark mode
 - responsive design, display well on mobiles, tablets, laptops and desktops
-- all input data will be sanitized in frontend and validated at backend before inserted into database.
-- the password will be hashed before inserted into database.
+- all input data will be sanitized in frontend and validated at backend
+- the password will be hashed before inserted into database
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -60,9 +60,10 @@ You can find the demo [here](https://jacksgarden.netlify.app/)
    ```
 3. Create a `.env` file in root folder and enter following fields
    ```env
-    REACT_APP_STRIPE_KEY = YOUR STRIPE KEY
-    PORT = YOUR PORT NUMBER
-    REACT_APP_BASE_URL = https://jacks-garden-server.herokuapp.com this is the address of the server
+    REACT_APP_STRIPE_KEY = YOUR_STRIPE_KEY
+    PORT = YOUR_PORT_NUMBER
+    REACT_APP_BASE_URL = YOUR_SERVER_URL (this is the address of the server, make sure the server is running)
+    REACT_APP_CLIENT_URL = http://localhost:YOUR_PORT_NUMBER
    ```
 4. Cd to client folder in terminal and start client server
    ```sh
@@ -83,6 +84,5 @@ The webpage will be served at http://localhost:YOUR_PORT_NUMBER
 - [ ] Update Stripe (31-07-2022)
 - [ ] Display more images for each product (15-08-2022)
 - [ ] Add 'You may also like' section in product page (15-08-2022)
-- [ ] Improve site performance from 86 to above 90 (lighthouse testing) (30-08-2022)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

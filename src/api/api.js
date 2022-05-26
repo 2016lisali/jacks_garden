@@ -15,6 +15,8 @@ API.interceptors.request.use(req => {
 //Auth API
 export const login = (formData) => API.post("/users/login", formData);
 export const registerUser = (formData) => API.post("/users/register", formData)
+export const getUserById = (id) => API.get(`/users/${id}`)
+
 
 // Mailing list API
 export const addEmail = (data) => API.post("/users/emails", data)
@@ -27,6 +29,7 @@ export const uploadImg = (img) => API.post("/uploadfiles", img, {
 // Products API
 export const getAllProducts = () => API.get("/products");
 export const getProductBySearch = (productname, category) => API.get(`/products/search?productname=${productname}&category=${category}`);
+export const getProductById = (id) => API.get(`/products/${id}`);
 
 // Cart API
 export const createCart = (userId) => API.post(`/carts/?userId=${userId}`);

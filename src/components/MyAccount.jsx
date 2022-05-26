@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { Container, Button, Modal, Table } from "react-bootstrap";
 import SpinnerDiv from "./SpinnerDiv";
 import Breadcrumbs from "./Breadcrumbs";
-import { getOrderDetailsByUserId } from "../api/api";
+import { getOrderDetailsByUserId, getUserById } from "../api/api";
 
 const MyAccount = () => {
-  const user = useSelector(state => state.user.currentUser);
+  const currentUser = useSelector(state => state.user.currentUser);
+  const [user, setUser] = useState();
   const [myOrder, setMyOrder] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [modalState, setModalState] = useState({
@@ -35,10 +36,22 @@ const MyAccount = () => {
   }
 
   useEffect(() => {
+    console.log("currentUser changed");
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-  }, []);
+    const getUser = async () => {
+      try {
+        const res = await getUserById(currentUser?.userId)
+        res.data && setUser(res.data[0])
+        console.log("res.data", res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getUser()
+  }, [currentUser]);
 
+  console.log("currentUser", currentUser);
   useEffect(() => {
     const getOrderDetails = async (userId) => {
       setIsFetching(true)

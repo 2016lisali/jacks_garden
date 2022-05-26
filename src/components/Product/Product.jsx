@@ -6,9 +6,11 @@ import { Cart3, Dash, Plus } from "react-bootstrap-icons";
 import { getCartDetails, addProductToCart, updateProductQuantity } from "../../actions/cartAction";
 import SpinnerDiv from "../SpinnerDiv";
 import Breadcrumbs from "../Breadcrumbs";
+import { getProductById } from "../../api/api";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState();
   const [isFetching, setIsFetching] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isProductInCart, setIsProductInCart] = useState(false);
@@ -18,12 +20,23 @@ const Product = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const location = useLocation();
-  const product = location.state;
+  const currentPath = location.pathname.split("/");
+  const productId = currentPath[currentPath.length - 1];
+  console.log("productId", productId);
 
   // scroll to top when navigate to the page
   useEffect(() => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    const getProduct = async () => {
+      try {
+        const res = await getProductById(productId)
+        res.data.length > 0 ? setProduct(res.data[0]) : setProduct(null)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getProduct()
   }, []);
 
   const handleAddToCart = async () => {
@@ -73,26 +86,30 @@ const Product = () => {
   return (
     <Container fluid="xl" className="product-container py-4">
       <Breadcrumbs />
-      <Row className="py-4">
-        <Col sm={6} className="img-col p-3">
-          <Image src={`${URL}${product?.productImage}`} className="w-100" alt={product.productName} />
-        </Col>
-        <Col as="div" sm={6} className="info d-flex flex-column justity-content-between p-3">
-          <h2 className="mb-4">{product.productName}</h2>
-          <p>{product.productDescription}</p>
-          <p className="price fw-bold fs-3">$ {product.price}</p>
-          <div className="amount-container">
-            <Dash size="30px" onClick={() => handleQuantity("des")} />
-            <p className="quantity d-inline-flex justify-content-center align-items-center border border-success rounded-3 mx-1">{quantity}</p>
-            <Plus size="30px" onClick={() => handleQuantity("inc")} />
-          </div>
-          <Button variant="outline-success mt-3" onClick={handleAddToCart}>
-            {isFetching && <SpinnerDiv />}
-            {(!isFetching && !isSuccess) && (<><Cart3 /> ADD TO CART</>)}
-            {isSuccess && <>ADDED</>}
-          </Button>
-        </Col>
-      </Row>
+      {!product ?
+        <div>Product does not exist</div> :
+        <Row className="py-4">
+          <Col sm={6} className="img-col p-3">
+            <Image src={`${URL}${product?.productImage}`} className="w-100" alt={product?.productName} />
+          </Col>
+          <Col as="div" sm={6} className="info d-flex flex-column justity-content-between p-3">
+            <h2 className="mb-4">{product?.productName}</h2>
+            <p>{product?.productDescription}</p>
+            <p className="price fw-bold fs-3">$ {product?.price}</p>
+            <div className="amount-container">
+              <Dash size="30px" onClick={() => handleQuantity("des")} />
+              <p className="quantity d-inline-flex justify-content-center align-items-center border border-success rounded-3 mx-1">{quantity}</p>
+              <Plus size="30px" onClick={() => handleQuantity("inc")} />
+            </div>
+            <Button variant="outline-success mt-3" onClick={handleAddToCart}>
+              {isFetching && <SpinnerDiv />}
+              {(!isFetching && !isSuccess) && (<><Cart3 /> ADD TO CART</>)}
+              {isSuccess && <>ADDED</>}
+            </Button>
+          </Col>
+        </Row>
+      }
+
       {/* <Row>
         <h2>You may also like</h2>
         <ProductList cat={product.category} />
