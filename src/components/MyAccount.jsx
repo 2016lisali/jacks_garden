@@ -64,7 +64,6 @@ const MyAccount = () => {
         console.log(error.response.data);
       }
     }
-    // getUser()
     currentUser && getOrderDetails()
   }, [currentUser]);
   return (
