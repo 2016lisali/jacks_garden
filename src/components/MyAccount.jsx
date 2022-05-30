@@ -36,27 +36,27 @@ const MyAccount = () => {
   }
 
   useEffect(() => {
-    console.log("currentUser changed");
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-    const getUser = async () => {
+  }, []);
+
+  useEffect(() => {
+    // const getUser = async () => {
+    //   try {
+    //     const res = await getUserById(currentUser?.userId)
+    //     res.data && setUser(res.data[0])
+    //     console.log("res.data", res.data);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
+
+    const getOrderDetails = async () => {
+      setIsFetching(true)
       try {
         const res = await getUserById(currentUser?.userId)
         res.data && setUser(res.data[0])
-        console.log("res.data", res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getUser()
-  }, [currentUser]);
-
-  console.log("currentUser", currentUser);
-  useEffect(() => {
-    const getOrderDetails = async (userId) => {
-      setIsFetching(true)
-      try {
-        const result = await getOrderDetailsByUserId(userId)
+        const result = await getOrderDetailsByUserId(currentUser?.userId)
         result.data && setMyOrder(result.data)
         setIsFetching(false)
       } catch (error) {
@@ -64,8 +64,9 @@ const MyAccount = () => {
         console.log(error.response.data);
       }
     }
-    user && getOrderDetails(user.userId)
-  }, [user]);
+    // getUser()
+    currentUser && getOrderDetails()
+  }, [currentUser]);
   return (
     <Container fluid="xl">
       <Breadcrumbs />

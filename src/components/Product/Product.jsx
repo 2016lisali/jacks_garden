@@ -10,7 +10,7 @@ import { getProductById } from "../../api/api";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({});
   const [isFetching, setIsFetching] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isProductInCart, setIsProductInCart] = useState(false);
@@ -22,7 +22,6 @@ const Product = () => {
   const location = useLocation();
   const currentPath = location.pathname.split("/");
   const productId = currentPath[currentPath.length - 1];
-  console.log("productId", productId);
 
   // scroll to top when navigate to the page
   useEffect(() => {
@@ -66,11 +65,11 @@ const Product = () => {
   useEffect(() => {
     console.log("Use effect");
     currentUser?.userId && getCartDetails(currentUser?.userId, dispatch);
-    setIsProductInCart(cart.products.some(item =>
+    product && setIsProductInCart(cart.products.some(item =>
       item.productId === product.productId
     ))
     cart.products.forEach(item => {
-      item.productId === product.productId && setQuantityInCart(item.quantity)
+      item.productId === product?.productId && setQuantityInCart(item.quantity)
     })
     // eslint-disable-next-line
   }, [dispatch, cart.total]);
