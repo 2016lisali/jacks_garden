@@ -11,3 +11,6 @@
 8. using localstorage for user data, if user doesn't logout, how the system know the token has expired??
 
 9. serviceworks.js
+
+
+1. cart table, the position of trashcan

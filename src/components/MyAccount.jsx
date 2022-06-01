@@ -83,7 +83,7 @@ const MyAccount = () => {
             </thead>
             <tbody>
               {myOrder.length === 0 ?
-                <tr><td> You haven't placed any order yet</td></tr> :
+                <tr className="d-flex align-items-center"><td> You haven't placed any order yet</td></tr> :
                 myOrder?.map(order => <tr key={order.orderId}>
                   <td>{order.orderId}</td>
                   <td className="d-none d-md-table-cell">{order.orderDate.split("T")[0]}</td>

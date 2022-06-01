@@ -75,16 +75,15 @@ const Cart = () => {
   }, [stripeToken, navigate, cart.total]);
 
   return (
-    <Container fluid="xl" className="cart p-4">
+    <Container fluid="xl" className="cart p-2 p-md-4">
       <Breadcrumbs />
-      <Row>
+      <Row className="py-3">
         <Col md={8} className="cart-details py-3 mb-4">
           <h2>YOUR CART</h2>
           <Table className="text-center text-gray">
             <thead>
               <tr>
-                <th></th>
-                <th>Product Name</th>
+                <th colSpan={2}>Product Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th className="d-none d-md-table-cell">Subtotal</th>

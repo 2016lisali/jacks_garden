@@ -12,10 +12,8 @@ const ProductList = ({ cat, searchQuery }) => {
   const [isFetching, setIsFetching] = useState()
   const location = useLocation();
   const currentPage = location.pathname;
-  console.log(currentPage);
   const handleSort = (e) => {
-    const value = e.target.value
-    console.log(products);
+    const value = e.target.value;
     switch (value) {
       case "price_low":
         setProducts([...products.sort((a, b) => a.price - b.price)]);
