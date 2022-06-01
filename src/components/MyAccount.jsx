@@ -41,16 +41,6 @@ const MyAccount = () => {
   }, []);
 
   useEffect(() => {
-    // const getUser = async () => {
-    //   try {
-    //     const res = await getUserById(currentUser?.userId)
-    //     res.data && setUser(res.data[0])
-    //     console.log("res.data", res.data);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
-
     const getOrderDetails = async () => {
       setIsFetching(true)
       try {

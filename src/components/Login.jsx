@@ -28,9 +28,15 @@ const Login = () => {
           <h1 className="text-center py-3">LOG IN</h1>
           <FloatingLabel className="mb-3" label="Email">
             <Form.Control
-              type="email"
               placeholder="Email"
-              {...register("email", { required: true })} />
+              {...register("email", {
+                required: true,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "invalid email address"
+                }
+              })}
+            />
             <p className="text-danger">{errors.email && "Unvalid email"}</p>
           </FloatingLabel>
           <FloatingLabel className="mb-3" label="Password">
@@ -40,8 +46,7 @@ const Login = () => {
               {...register("password", {
                 pattern: {
                   value: /^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+*!=.]).*$/,
-                  message: `Password must be minimum 8 characters, contain at least one uppercase, one lowercase, one number and one symbol
-                            from (@#$%^&+*!=.)`
+                  message: `Please check your password`
                 },
                 required: 'Please enter your password',
               })} />

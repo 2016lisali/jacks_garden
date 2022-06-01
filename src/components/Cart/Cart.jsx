@@ -87,13 +87,13 @@ const Cart = () => {
                 <th>Product Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Subtotal</th>
+                <th className="d-none d-md-table-cell">Subtotal</th>
               </tr>
             </thead>
             <tbody>
               {cart.products[0]?.quantity > 0 ? cart.products.map(item => (
                 <CartItem key={item.productId} item={item} cart={cart} dispatch={dispatch} updateProductQuantity={updateProductQuantity} handleRemoveProduct={handleRemoveProduct} />
-              )) : <tr><td className="fs-5 py-3">Your cart is empty </td></tr>}
+              )) : <tr><td colspan={4} className="fs-5 py-3">Your cart is empty </td></tr>}
             </tbody>
           </Table>
           <div className="d-flex justify-content-between">

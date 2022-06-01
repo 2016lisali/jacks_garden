@@ -8,7 +8,7 @@ const Features = () => {
           <Truck size="40px" color="#D68C45" />
           <div className="ps-4">
             <h5>Local Pickup</h5>
-            <p>Click and collect from our nursery</p>
+            <p>Click and collect from our nursery{Math.floor((Math.random() + 1) * 20)}</p>
           </div>
         </Col>
         <Col md={4} className="d-flex align-items-center justify-content-center px-5">

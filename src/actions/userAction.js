@@ -12,7 +12,6 @@ export const login = async (formData, dispatch, navigate) => {
     }, 3000);
   } catch (error) {
     dispatch(loginFailure())
-    let errorMsg = error.response.data
-    alert(errorMsg.errors ? errorMsg.errors[0].msg : errorMsg);
+    alert(error.response?.data || error.message);
   }
 }

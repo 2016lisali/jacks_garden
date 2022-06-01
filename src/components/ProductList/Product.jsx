@@ -17,8 +17,8 @@ const Product = ({ product }) => {
         </Link>
       </div>
       <div className="d-flex justify-content-between align-items-center px-1">
-        <p>{product.productName}</p>
-        <p className="fw-bolder text-end" id="productPrice" style={{ minWidth: "54px" }}>$ {product.price}</p>
+        <h6 className="my-0">{product.productName}</h6>
+        <p className="fw-bolder text-end my-0" id="productPrice" style={{ minWidth: "54px" }}>$ {product.price}</p>
       </div>
     </Col>
   )
