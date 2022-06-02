@@ -86,7 +86,9 @@ const ProductList = ({ cat, searchQuery }) => {
           </Form.Select>}
       </div>
       {isFetching ?
-        <SpinnerDiv /> :
+        <div className="w-100 bg-dark bg-opacity-10 d-flex justify-content-center align-items-center py-5" >
+          <SpinnerDiv />
+        </div> :
         (<Row className="mx-0">
           {products && products.map(product => (
             <Product product={product} key={product.productId} />
