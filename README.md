@@ -1,6 +1,6 @@
 # Jack's Garden Online Store
 
-Jack's Garden is an online plant store created with react and react-bootstrap.
+Jack's Garden is an online plant store website created with react and react-bootstrap.
 
 The customer can register, login, logout to the site, view products, add product to the cart and place online orders.
 
@@ -20,11 +20,11 @@ You can find the backend code of this project on [https://github.com/2016lisali/
 
 ## Build With
 
-- Mysql database
+- MYSQL
 - Express.js
+- Node.js
 - React
 - React-router-dom
-- Node.js
 - Redux
 - Redux/toolkit
 - Service Workers

@@ -6,9 +6,9 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
   const URL = process.env.REACT_APP_BASE_URL;
   return (
     <tr key={item.productId}>
-      <td>
+      <td className="px-0">
         <Trash
-          className="me-2"
+          className="me-1"
           onClick={() =>
             handleRemoveProduct({
               cartId: cart.cartId,
