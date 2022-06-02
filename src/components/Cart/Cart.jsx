@@ -16,6 +16,7 @@ const Cart = () => {
   const cart = useSelector(state => state.cart);
   const currentUser = useSelector(state => state.user.currentUser);
   const [stripeToken, setStripeToken] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Cart = () => {
   // stripe payment
   useEffect(() => {
     const makeRequest = async () => {
+      setIsFetching(true)
       const date = new Date();
       const formattedDate = date.toISOString().split("T")[0];
       try {
@@ -59,15 +61,16 @@ const Cart = () => {
         });
         const { address, email, phone, name } = res.data.billing_details;
         const billingDetails = { orderId: orderRes.data.insertId, name: name, email: email, phone: phone, ...address }
-        console.log("billingDetails", billingDetails);
         await createOrderBillingDetails(billingDetails);
-        setIsSuccess(true);
         handleEmptyCart();
+        setIsSuccess(true);
+        setIsFetching(false);
         setTimeout(() => {
           navigate("/")
         }, 3000);
       } catch (error) {
         console.log(error.response.data);
+        setIsFetching(true);
       }
     }
     stripeToken && cart.total > 1 && makeRequest();
@@ -75,7 +78,7 @@ const Cart = () => {
   }, [stripeToken, navigate, cart.total]);
 
   return (
-    <Container fluid="xl" className="cart p-2 p-md-4">
+    <Container fluid="xl" className="cart position-relative p-2 p-md-4">
       <Breadcrumbs />
       <Row className="py-3">
         <Col md={8} className="cart-details py-3 mb-4">
@@ -117,6 +120,10 @@ const Cart = () => {
           </>}
         </Col>
       </Row>
+      {isFetching &&
+        <div className="d-flex justify-content-center align-items-center position-absolute top-0 start-0 bg-dark bg-opacity-50 vw-100 vh-100">
+          <p className="text-white">We are processing your order, please do not close the page.</p>
+        </div>}
     </Container>
   )
 }

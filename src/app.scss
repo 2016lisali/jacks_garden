@@ -85,6 +85,11 @@
     background-color: var(--bkg-color) !important;
     max-width: 450px;
     width: 95%;
+
+    label {
+      color: black !important;
+      z-index: 99;
+    }
   }
 
   .spinner-modal {
@@ -135,6 +140,9 @@
   .dropdown {
     .dropdown-toggle::after {
       display: none;
+    }
+    .dropdown-menu {
+      background-color: var(--bkg-color) !important;
     }
   }
   .dropdown .dropdown-menu .dropdown-item {
@@ -209,6 +217,13 @@
 
   .register-form {
     background-color: var(--bkg-color) !important;
+    .form-floating {
+      label {
+        color: black !important;
+        z-index: 99;
+      }
+    }
+
   }
 }
 .slideContainer {
