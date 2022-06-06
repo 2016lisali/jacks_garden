@@ -103,20 +103,23 @@ const Cart = () => {
             <Button variant="outline-secondary" onClick={handleEmptyCart}>Empty Cart</Button>
           </div>
         </Col>
-        <Col md={4} className="order-summary border rounded d-flex flex-column justify-content-between py-3 px-4">
+        <Col md={4} className="order-summary border rounded d-flex flex-column justify-content-start py-3 px-4">
           {isSuccess ? <SuccessDiv message="Your order has been placed, redirecting you to homepage now." /> : <>
             <CartSummary cart={cart} />
-            <StripeCheckout
-              name="Jack's Garden"
-              image=""
-              billingAddress
-              shippingAddress
-              description={`The total is $${(cart.total >= 150) ? cart.total : (cart.total + 9.95)}`}
-              amount={(cart.total >= 150) ? cart.total * 100 : (cart.total + 9.95) * 100}
-              token={onToken}
-              stripeKey={KEY}
-            >
-            </StripeCheckout>
+
+            {cart.total < 2000 ?
+              <StripeCheckout
+                name="Jack's Garden"
+                image=""
+                billingAddress
+                shippingAddress
+                description={`The total is $${(cart.total >= 150) ? cart.total : (cart.total + 9.95)}`}
+                amount={(cart.total >= 150) ? cart.total * 100 : (cart.total + 9.95) * 100}
+                token={onToken}
+                stripeKey={KEY}
+              >
+              </StripeCheckout> :
+              <div className="text-danger py-3">The total amount per order cannot be over $2000, please split your order.</div>}
           </>}
         </Col>
       </Row>

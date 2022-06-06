@@ -3,6 +3,11 @@
 .announcement {
   background-color: var(--colorGreen);
 }
+
+.btp-btn {
+  z-index: 99;
+}
+
 .cart {
   background-color: var(--bkg-color);
   .cart-details {
@@ -15,13 +20,17 @@
       &:hover {
         transform: scale(1.2);
       }
+      &:active {
+        transform: scale(0.9);
+      }
     }
   }
 
-  .order-summary {
-    height: 350px;
-  }
+  // .order-summary {
+  //   height: 450px;
+  // }
 }
+
 .category-container {
   h3 {
     color: var(--text-color);

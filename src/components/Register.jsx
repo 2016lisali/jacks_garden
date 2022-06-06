@@ -11,7 +11,7 @@ import SuccessDiv from "./SuccessDiv.jsx";
 import SpinnerDiv from "./SpinnerDiv";
 
 const schema = yup.object({
-  firstName: yup.string().max(25, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
+  firstName: yup.string().max(50, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
     "upper case and lower case letters only.").required(),
   lastName: yup.string().max(25, "The length cannot be over 25").matches(/^([a-zA-Z])+$/,
     "upper case and lower case letters only.").required(),
@@ -55,9 +55,9 @@ const Register = () => {
             <h2 className="text-center py-3">CREATE AN ACCOUNT</h2>
             <Row>
               <Col md>
-                <FormInput register={register} errors={errors} name="firstName" type="text" formattedName="First Name" tips="upper case or lower case letters only, max length 25 letters." />
-                <FormInput register={register} errors={errors} name="lastName" type="text" formattedName="Last Name" tips="upper case or lower case letters only, max length 25 letters." />
-                <FormInput register={register} errors={errors} name="email" type="email" formattedName="Email" tips="must be a valid email address" />
+                <FormInput register={register} errors={errors} name="firstName" formattedName="First Name" tips="upper case or lower case letters only, max length 25 letters." />
+                <FormInput register={register} errors={errors} name="lastName" formattedName="Last Name" tips="upper case or lower case letters only, max length 25 letters." />
+                <FormInput register={register} errors={errors} name="email" formattedName="Email" tips="must be a valid email address" />
               </Col>
               <Col md>
                 <FormInput register={register} errors={errors} name="password" type="password" formattedName="Password" tips="Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number and one symbol from #$%^&+*!=." />

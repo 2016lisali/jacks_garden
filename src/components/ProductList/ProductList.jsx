@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Container, Col, Form, Row } from "react-bootstrap";
+import { Container, Form, Row } from "react-bootstrap";
 import { getAllProducts, getProductBySearch } from "../../api/api.js";
 import Product from "./Product";
 import SpinnerDiv from "../SpinnerDiv";
@@ -71,7 +71,7 @@ const ProductList = ({ cat, searchQuery }) => {
     }
     getProducts();
   }, [cat, searchQuery])
-  console.log(products);
+
   return (
     <Container fluid="xl" className="productList-container px-0 py-4">
       <Breadcrumbs />

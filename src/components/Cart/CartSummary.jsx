@@ -17,7 +17,8 @@ const CartSummary = ({ cart }) => {
       <div className="total-amount fs-3 fw-bolder">
         <span className="pe-2">Total</span>
         <span>$ {cart.total >= 150 ? cart.total : cart.total + 9.95} </span>
-      </div></div>
+      </div>
+    </div>
   )
 }
 

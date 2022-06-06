@@ -23,6 +23,9 @@ const Product = () => {
   const currentPath = location.pathname.split("/");
   const productId = currentPath[currentPath.length - 1];
 
+  console.log("product", product);
+  console.log("!product", !product);
+  console.log("product.length", product?.length);
   // scroll to top when navigate to the page
   useEffect(() => {
     document.body.scrollTop = 0;
@@ -30,24 +33,26 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await getProductById(productId)
+        console.log(res);
         res.data.length > 0 ? setProduct(res.data[0]) : setProduct(null)
       } catch (error) {
-        console.log(error);
+        setProduct(null)
+        console.log(error)
       }
     }
     getProduct()
-  }, []);
+  }, [productId]);
 
   const handleAddToCart = async () => {
     setIsFetching(true);
     try {
-      console.log(currentUser);
       if (currentUser) {
-        console.log("here");
         if (!isProductInCart) {
           await addProductToCart({ cartId: cart.cartId, productId: product.productId, price: product.price, quantity }, dispatch)
         } else {
-          await updateProductQuantity({ cartId: cart.cartId, productId: product.productId, quantity: quantity + quantityInCart }, dispatch)
+          (quantity + quantityInCart <= 10) ?
+            await updateProductQuantity({ cartId: cart.cartId, productId: product.productId, quantity: quantity + quantityInCart }, dispatch) :
+            alert(`The maximum amount per order is 10,there is already ${quantityInCart} in your shopping cart`)
         }
         setIsFetching(false);
         setIsSuccess(true);
@@ -60,10 +65,9 @@ const Product = () => {
       setIsFetching(false);
       setIsSuccess(false);
     }
-
   };
+
   useEffect(() => {
-    console.log("Use effect");
     currentUser?.userId && getCartDetails(currentUser?.userId, dispatch);
     product && setIsProductInCart(cart.products.some(item =>
       item.productId === product.productId
@@ -72,21 +76,21 @@ const Product = () => {
       item.productId === product?.productId && setQuantityInCart(item.quantity)
     })
     // eslint-disable-next-line
-  }, [dispatch, cart.total]);
+  }, [dispatch, product, cart.total]);
 
   const handleQuantity = (type) => {
     if (type === "des") {
       quantity > 1 && setQuantity(quantity - 1);
     } else {
-      setQuantity(quantity + 1);
+      quantity < 10 ? setQuantity(quantity + 1) : alert("max amount is 10 per order");
     }
   }
 
   return (
-    <Container fluid="xl" className="product-container py-4">
+    <Container fluid="xl" className="product-container position-relative py-4">
       <Breadcrumbs />
       {!product ?
-        <div>Product does not exist</div> :
+        <div className="w-100 p-3 d-flex justify-content-center align-items-center">Product does not exist</div> :
         <Row className="py-4">
           <Col sm={6} className="img-col p-3">
             <Image src={`${URL}${product?.productImage}`} className="w-100" alt={product?.productName} />
@@ -106,6 +110,9 @@ const Product = () => {
               {isSuccess && <>ADDED</>}
             </Button>
           </Col>
+          {Object.keys(product).length === 0 && <div className="w-100 h-100 position-absolute top-0 start-0 bg-light d-flex justify-content-center align-items-center py-5" >
+            <SpinnerDiv />
+          </div>}
         </Row>
       }
 
@@ -113,6 +120,7 @@ const Product = () => {
         <h2>You may also like</h2>
         <ProductList cat={product.category} />
       </Row> */}
+
     </Container>
   )
 }

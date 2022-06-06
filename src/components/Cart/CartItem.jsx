@@ -1,6 +1,5 @@
 import { Dash, Plus, Trash } from "react-bootstrap-icons";
 import { Image } from 'react-bootstrap';
-import { Link } from "react-router-dom";
 
 const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemoveProduct }) => {
   const URL = process.env.REACT_APP_BASE_URL;
@@ -29,15 +28,18 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
             }, dispatch)} />
         {item.quantity}
         <Plus size="25px" onClick={() =>
-          updateProductQuantity({
-            quantity: item.quantity + 1,
-            cartId: cart.cartId,
-            productId: item.productId
-          }, dispatch)} />
+          item.quantity < 10 ?
+            updateProductQuantity({
+              quantity: item.quantity + 1,
+              cartId: cart.cartId,
+              productId: item.productId
+            }, dispatch) :
+            alert("max 10 per order")}
+        />
       </td>
       <td className="d-none d-md-table-cell">$ {item.price * item.quantity}
       </td>
-    </tr>
+    </tr >
   )
 }
 

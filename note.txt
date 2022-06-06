@@ -13,4 +13,18 @@
 9. serviceworks.js
 
 
-1. cart table, the position of trashcan
+1. cart table, the position of trash can
+
+TODOs
+1. modify the allowed total quantity to max 10 for each product and Total amount of orders to 2000
+   Front-end in product and cart page, react-hook-form and validation schemas
+   back-end validate middleware
+   database
+
+   product.jsx cart, cartItem
+   stripeController
+   cartSummary
+   
+2. Jest for backend testing
+
+   
