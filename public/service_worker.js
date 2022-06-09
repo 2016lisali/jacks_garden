@@ -25,10 +25,10 @@ async function fetchContent(e) {
       const cache = await caches.open(version);
       const cachedResponse = await cache.match(e.request);
       if (cachedResponse) {
-        console.log('Cache Request: ' + e.request.url);
+        // console.log('Cache Request: ' + e.request.url);
         return cachedResponse;
       }
-      console.log('Network Request: ' + e.request.url);
+      // console.log('Network Request: ' + e.request.url);
       return fetch(e.request);
     })()
   )
