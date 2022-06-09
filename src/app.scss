@@ -24,12 +24,13 @@
         transform: scale(0.9);
       }
     }
-    .processing {
+  }
+  .processing {          
+    z-index: 3;
+    p {
       font-size: 20px;
-      z-index: 3;
     }
   }
-
   // .order-summary {
   //   height: 450px;
   // }

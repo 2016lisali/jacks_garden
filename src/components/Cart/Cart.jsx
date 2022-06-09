@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout"
-import { Container, Row, Col, Table, Button } from "react-bootstrap";
+import { Button, Container, Row, Col, Modal, Table } from "react-bootstrap";
 import { createOrder, createOrderDetails, makePayment, createOrderBillingDetails } from "../../api/api";
 import { updateProductQuantity, removeProductFromCart, emptyShoppingCart } from "../../actions/cartAction";
 import CartItem from "./CartItem";
@@ -126,9 +126,10 @@ const Cart = () => {
         </Col>
       </Row>
       {isFetching &&
-        <div className="processing d-flex justify-content-center align-items-center position-absolute top-0 start-0 bg-dark bg-opacity-50 vw-100 vh-100">
-          <p className="text-white">We are processing your order, please do not close the page.</p>
-        </div>}
+        <Modal show centered>
+          <Modal.Body>We are processing your order, please do not close the page.</Modal.Body>
+        </Modal>
+      }
     </Container>
   )
 }
