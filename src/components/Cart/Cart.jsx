@@ -126,8 +126,8 @@ const Cart = () => {
         </Col>
       </Row>
       {isFetching &&
-        <div className="d-flex justify-content-center align-items-center position-absolute top-0 start-0 bg-dark bg-opacity-50 vw-100 vh-100">
-          <p className="text-white processing">We are processing your order, please do not close the page.</p>
+        <div className="processing d-flex justify-content-center align-items-center position-absolute top-0 start-0 bg-dark bg-opacity-50 vw-100 vh-100">
+          <p className="text-white">We are processing your order, please do not close the page.</p>
         </div>}
     </Container>
   )
