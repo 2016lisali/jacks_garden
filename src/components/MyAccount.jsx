@@ -18,7 +18,7 @@ const MyAccount = () => {
     show: false,
   });
 
-  const getOrderDetails = async (orderId) => {
+  const getOrderDetails = async (target, title, orderId) => {
     try {
       const orderDetails = await getOrderDetailsByOrderId(orderId)
       const newContent = (
@@ -41,7 +41,6 @@ const MyAccount = () => {
           </tbody>
         </Table>
       )
-      console.log("orderDetails", orderDetails.data);
       orderDetails?.data?.length > 0 && setModalState({ target, title, orderId, "content": newContent, "show": true })
     } catch (error) {
       console.log(error);
@@ -49,7 +48,7 @@ const MyAccount = () => {
   }
   const handleClose = () => setModalState({ ...modalState, "show": false });
   const handleShow = async (target, title, content, orderId) => {
-    orderId ? getOrderDetails(orderId) : setModalState({ target, title, content, orderId, "show": true })
+    orderId ? getOrderDetails(target, title, orderId) : setModalState({ target, title, content, orderId, "show": true })
   };
 
   const DetailModal = () => {
