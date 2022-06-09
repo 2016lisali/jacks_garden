@@ -117,7 +117,7 @@ const MyAccount = () => {
                   <td className="align-middle">{order.orderStatus}</td>
                   <td className="align-middle">${order.orderAmount / 100}</td>
                   <td className="align-middle">
-                    <Button variant="light" onClick={() => handleShow(target = "orderDetails", title = "Order Details", content = "here should be order details", orderId = order.orderId)}>
+                    <Button variant="light" onClick={() => handleShow("orderDetails", "Order Details", "here should be order details", order.orderId)}>
                       Details
                     </Button>
                   </td>
