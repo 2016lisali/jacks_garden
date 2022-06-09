@@ -52,7 +52,7 @@ const Login = () => {
               })} />
             <p className="text-danger">{errors.password && errors.password.message}</p>
           </FloatingLabel>
-          <Link to="/account"><p>Forgot password?</p></Link>
+          <div className="d-none"><Link to="/account"><p>Forgot password?</p></Link></div>
           <p>Not have an account yet? <Link to="/register"><b>Register Here</b></Link></p>
           <div className="d-grid gap-2">
             <Button variant="success" type="submit">
@@ -60,6 +60,9 @@ const Login = () => {
                 <SpinnerDiv /> :
                 "SUBMIT"}
             </Button>
+          </div>
+          <div className="border border-danger rounded-3 d-flex p-3 mt-3">
+            The site can be tested with <br />Email: test@gmail.com <br /> Password: Test1234&
           </div>
         </Form>}
     </div>

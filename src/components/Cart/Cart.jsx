@@ -106,7 +106,6 @@ const Cart = () => {
         <Col md={4} className="order-summary border rounded d-flex flex-column justify-content-start py-3 px-4">
           {isSuccess ? <SuccessDiv message="Your order has been placed, redirecting you to homepage now." /> : <>
             <CartSummary cart={cart} />
-
             {cart.total < 2000 ?
               <StripeCheckout
                 name="Jack's Garden"
@@ -120,12 +119,15 @@ const Cart = () => {
               >
               </StripeCheckout> :
               <div className="text-danger py-3">The total amount per order cannot be over $2000, please split your order.</div>}
+            <div className="border border-danger rounded-3 d-flex px-1 py-3 mt-3">
+              The payment can be tested with <br />card number: 4242 4242 4242 4242 <br />& a future date for expire date
+            </div>
           </>}
         </Col>
       </Row>
       {isFetching &&
         <div className="d-flex justify-content-center align-items-center position-absolute top-0 start-0 bg-dark bg-opacity-50 vw-100 vh-100">
-          <p className="text-white">We are processing your order, please do not close the page.</p>
+          <p className="text-white processing">We are processing your order, please do not close the page.</p>
         </div>}
     </Container>
   )
