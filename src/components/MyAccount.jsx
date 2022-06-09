@@ -19,6 +19,7 @@ const MyAccount = () => {
   });
 
   const getOrderDetails = async (target, title, orderId) => {
+    setModalState({ target, title, orderId, "content": <SpinnerDiv />, "show": true })
     try {
       const orderDetails = await getOrderDetailsByOrderId(orderId)
       const newContent = (
@@ -41,7 +42,9 @@ const MyAccount = () => {
           </tbody>
         </Table>
       )
-      orderDetails?.data?.length > 0 && setModalState({ target, title, orderId, "content": newContent, "show": true })
+      orderDetails?.data?.length > 0 ?
+        setModalState({ target, title, orderId, "content": newContent, "show": true }) :
+        setModalState({ target, title, orderId, "content": "Something wrong, please try later", "show": true })
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +59,7 @@ const MyAccount = () => {
       <Modal.Header closeButton>
         <Modal.Title>{modalState.title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>{modalState.content}</Modal.Body>
+      <Modal.Body className="d-flex align-items-center justify-content-center">{modalState.content}</Modal.Body>
     </Modal>
   }
 
@@ -87,11 +90,13 @@ const MyAccount = () => {
       <Breadcrumbs />
       <div className="border border-2 shadow-sm p-3 mt-4">
         <h3 className="my-3">Personal Details</h3>
-        <p><span className="fw-bolder me-2">First Name:</span>{user?.firstName}</p>
-        <p><span className="fw-bolder me-2">Last Name:</span>{user?.lastName}</p>
-        <p><span className="fw-bolder me-2">Email:</span>{user?.email}</p>
-        <Button variant="link" className="text-decoration-underline ps-0 d-none"
-          onClick={() => handleShow("userDetails", "Personal Details", "here should be personal details")}>Change my personal details</Button>
+        {isFetching ? <SpinnerDiv /> : <>
+          <p><span className="fw-bolder me-2">First Name:</span>{user?.firstName}</p>
+          <p><span className="fw-bolder me-2">Last Name:</span>{user?.lastName}</p>
+          <p><span className="fw-bolder me-2">Email:</span>{user?.email}</p>
+          <Button variant="link" className="text-decoration-underline ps-0 d-none"
+            onClick={() => handleShow("userDetails", "Personal Details", "here should be personal details")}>Change my personal details</Button>
+        </>}
       </div>
       <div className="border border-2 shadow-sm p-3 my-4">
         <h3>My Orders</h3>
