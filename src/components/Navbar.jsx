@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ReactTooltip from 'react-tooltip';
 import { useForm } from "react-hook-form";
-import decode from 'jwt-decode';
 import { Badge, Navbar, Nav, Form, FormControl, Button, Container, NavDropdown } from 'react-bootstrap';
 import { Cart3, PersonFill } from 'react-bootstrap-icons';
 import { emptyCart } from '../redux/cartReducer';
 import { loginSuccess, logout } from '../redux/userReducer';
 import { getCartDetails } from '../actions/cartAction';
+import { deleteCookie } from '../api/api';
 
 const TopNav = () => {
   const dispatch = useDispatch();
@@ -47,10 +47,16 @@ const TopNav = () => {
     console.log(data);
     navigate(`/products/search?productname=${data.search}`)
   }
-  const handleLogout = () => {
+  const handleLogout = async () => {
     dispatch(logout());
     dispatch(emptyCart())
     navigate("/")
+    try {
+      const res = await deleteCookie()
+      console.log("delete cookie res", res);
+    } catch (error) {
+      console.log("delete cookie error", error);
+    }
   }
   const toggleDarkMode = (e) => {
     const rootElement = document.querySelector("html");

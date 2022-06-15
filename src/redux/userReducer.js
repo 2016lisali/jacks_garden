@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteCookie } from "../api/api";
 
 const userSlice = createSlice({
   name: "user",
@@ -27,12 +26,6 @@ const userSlice = createSlice({
       localStorage.removeItem("jg_user");
       state.currentUser = null;
       state.isSuccess = false;
-      try {
-        const res = await deleteCookie()
-        console.log("delete cookie res", res);
-      } catch (error) {
-        console.log("delete cookie error", error);
-      }
     }
   }
 })

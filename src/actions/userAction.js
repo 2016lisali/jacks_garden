@@ -4,7 +4,7 @@ export const login = async (formData, dispatch, navigate) => {
   dispatch(loginStart());
   try {
     const { data } = await api.login(formData);
-    const { userId, firstName, lastName, email } = data;
+    const { userId, firstName, email } = data;
     localStorage.setItem('jg_user', JSON.stringify({
       user: { userId, firstName, email, expires: new Date(new Date().getTime() + 2 * 60 * 60 * 1000) }
     }))
