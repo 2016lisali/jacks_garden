@@ -1,12 +1,28 @@
-# Jack's Garden Online Store
+<p align="center">
+  <a href="https://jacksgarden.netlify.app/"><img src="https://github.com/2016lisali/lisas_portfolio/blob/main/public/assets/jacks_garden_responsive.jpg"/></a>
+</p>
 
-Jack's Garden is an online plant store website created with react and react-bootstrap.
+<h1 align="center">
+  🪴Jack's Garden Online Store
+</h1>
 
-The customer can register, login, logout to the site, view products, add product to the cart and place online orders.
+<h3 align="center">
+  An online plant store website created with react and react-bootstrap.
+</h3>
 
-You can find the backend code of this project on [https://github.com/2016lisali/jacks_garden_server](https://github.com/2016lisali/jacks_garden_server) and the admin panel code on [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
+<p align="center">
+  Customers can register, login, logout to the site, view products, add products to the cart and place online orders.
+</p>
 
-![Project Screen Shot](https://github.com/2016lisali/lisas_portfolio/blob/main/public/assets/jacks_garden_responsive.jpg)
+**Backend**: [https://github.com/2016lisali/jacks_garden_server](https://github.com/2016lisali/jacks_garden_server)
+
+**Admin panel**: [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
+
+## Try it
+
+You can find the demo [here](https://jacksgarden.netlify.app/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Features
 
@@ -37,12 +53,6 @@ You can find the backend code of this project on [https://github.com/2016lisali/
 - yup
 - axios
 - bcrypt
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-## Try it
-
-You can find the demo [here](https://jacksgarden.netlify.app/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

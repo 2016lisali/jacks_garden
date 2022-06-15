@@ -29,7 +29,6 @@ const TopNav = () => {
       }
     }
   }, [location]);
-  console.log("user", user);
   // check if darkmode in localStorage
   useEffect(() => {
     const darkmode = JSON.parse(localStorage.getItem('darkmode'))
