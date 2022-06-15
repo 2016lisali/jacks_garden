@@ -41,4 +41,5 @@ export const createOrderBillingDetails = (data) => API.post("/orders/billings", 
 export const getOrderDetailsByUserId = (userId) => API.get(`/orders/users/${userId}`)
 export const getOrderDetailsByOrderId = (orderId) => API.get(`/orders/${orderId}`)
 
-
+// Cookies API
+export const deleteCookie = () => API.delete("/cookies")

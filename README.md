@@ -18,6 +18,8 @@
 
 **Admin panel**: [https://github.com/2016lisali/jacks_garden_admin_panel](https://github.com/2016lisali/jacks_garden_admin_panel)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Try it
 
 You can find the demo [here](https://jacksgarden.netlify.app/)
