@@ -25,7 +25,7 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
       <td>
         <Dash size="25px"
           onClick={() =>
-            item.quantity > 1 && ({
+            item.quantity > 1 && updateProductQuantity({
               quantity: item.quantity - 1,
               cartId: cart.cartId,
               productId: item.productId
