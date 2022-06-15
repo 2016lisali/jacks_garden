@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { Dash, Plus, Trash } from "react-bootstrap-icons";
 import { Image } from 'react-bootstrap';
 
 const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemoveProduct }) => {
   const URL = process.env.REACT_APP_BASE_URL;
+  const currentUser = useSelector(state => state.user.currentUser);
+
   return (
     <tr key={item.productId}>
       <td className="px-0">
@@ -10,6 +13,7 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
           className="me-1"
           onClick={() =>
             handleRemoveProduct({
+              userId: currentUser.userId,
               cartId: cart.cartId,
               productId: item.productId,
               quantity: item.quantity
@@ -21,7 +25,7 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
       <td>
         <Dash size="25px"
           onClick={() =>
-            item.quantity > 1 && updateProductQuantity({
+            item.quantity > 1 && ({
               quantity: item.quantity - 1,
               cartId: cart.cartId,
               productId: item.productId
@@ -30,6 +34,7 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
         <Plus size="25px" onClick={() =>
           item.quantity < 10 ?
             updateProductQuantity({
+              userId: currentUser.userId,
               quantity: item.quantity + 1,
               cartId: cart.cartId,
               productId: item.productId

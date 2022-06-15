@@ -23,9 +23,6 @@ const Product = () => {
   const currentPath = location.pathname.split("/");
   const productId = currentPath[currentPath.length - 1];
 
-  console.log("product", product);
-  console.log("!product", !product);
-  console.log("product.length", product?.length);
   // scroll to top when navigate to the page
   useEffect(() => {
     document.body.scrollTop = 0;
@@ -48,10 +45,10 @@ const Product = () => {
     try {
       if (currentUser) {
         if (!isProductInCart) {
-          await addProductToCart({ cartId: cart.cartId, productId: product.productId, price: product.price, quantity }, dispatch)
+          await addProductToCart({ userId: currentUser.userId, cartId: cart.cartId, productId: product.productId, price: product.price, quantity }, dispatch)
         } else {
           (quantity + quantityInCart <= 10) ?
-            await updateProductQuantity({ cartId: cart.cartId, productId: product.productId, quantity: quantity + quantityInCart }, dispatch) :
+            await updateProductQuantity({ userId: currentUser.userId, cartId: cart.cartId, productId: product.productId, quantity: quantity + quantityInCart }, dispatch) :
             alert(`The maximum amount per order is 10,there is already ${quantityInCart} in your shopping cart`)
         }
         setIsFetching(false);

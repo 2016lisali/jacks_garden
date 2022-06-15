@@ -21,15 +21,15 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleRemoveProduct = (data) => {
-    removeProductFromCart(data, dispatch)
+    removeProductFromCart({ ...data, userId: currentUser.userId }, dispatch)
   };
   const handleEmptyCart = () => {
-    emptyShoppingCart(cart.cartId, dispatch)
+    emptyShoppingCart({ cartId: cart.cartId, userId: currentUser.userId }, dispatch)
   };
   const onToken = (token) => {
     setStripeToken(token);
   };
-
+  console.log(cart);
   // scroll to top when navigate to the page
   useEffect(() => {
     document.body.scrollTop = 0;
@@ -57,10 +57,10 @@ const Cart = () => {
         });
         const orderRes = await createOrder(orderData);
         cart.products.forEach(product => {
-          createOrderDetails({ orderId: orderRes.data.insertId, productId: product.productId, quantity: product.quantity, priceEach: product.price })
+          createOrderDetails({ orderId: orderRes.data.insertId, productId: product.productId, quantity: product.quantity, priceEach: product.price, userId: currentUser.userId })
         });
         const { address, email, phone, name } = res.data.billing_details;
-        const billingDetails = { orderId: orderRes.data.insertId, name: name, email: email, phone: phone, ...address }
+        const billingDetails = { orderId: orderRes.data.insertId, userId: currentUser.userId, name: name, email: email, phone: phone, ...address }
         await createOrderBillingDetails(billingDetails);
         handleEmptyCart();
         setIsSuccess(true);

@@ -4,9 +4,11 @@ export const login = async (formData, dispatch, navigate) => {
   dispatch(loginStart());
   try {
     const { data } = await api.login(formData);
-    const { userId, firstName, lastName, email, isAdmin, token } = data;
-    localStorage.setItem('jg_user', JSON.stringify({ user: { userId, firstName, lastName, email, isAdmin, token } }))
-    dispatch(loginSuccess({ userId, firstName, lastName, email, isAdmin }))
+    const { userId, firstName, lastName, email } = data;
+    localStorage.setItem('jg_user', JSON.stringify({
+      user: { userId, firstName, email, expires: new Date(new Date().getTime() + 2 * 60 * 60 * 1000) }
+    }))
+    dispatch(loginSuccess({ userId, firstName, email }))
     setTimeout(() => {
       navigate("/")
     }, 3000);

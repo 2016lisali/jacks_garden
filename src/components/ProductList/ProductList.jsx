@@ -28,7 +28,7 @@ const ProductList = ({ cat, searchQuery }) => {
         setProducts(products)
     }
   }
-  console.log(products);
+
   useEffect(() => {
     switch (cat) {
       case "indoor":

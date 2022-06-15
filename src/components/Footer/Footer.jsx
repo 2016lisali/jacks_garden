@@ -4,7 +4,6 @@ import { EnvelopeFill, Facebook, GeoAltFill, Instagram, Question, TelephoneFill,
 import Newsletter from './Newsletter';
 
 const Footer = () => {
-  console.log(Math.ceil((Math.random() + 1) * 10));
   return (
     <Container fluid className='px-0 footer'>
       <Newsletter />

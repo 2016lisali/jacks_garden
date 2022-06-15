@@ -54,9 +54,9 @@ export const removeProductFromCart = async (data, dispatch) => {
   }
 }
 
-export const emptyShoppingCart = async (cartId, dispatch) => {
+export const emptyShoppingCart = async (data, dispatch) => {
   try {
-    await api.emptyCart(cartId)
+    await api.emptyCart(data)
     dispatch(emptyCart())
   } catch (error) {
     console.log(error);

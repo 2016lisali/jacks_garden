@@ -20,20 +20,16 @@ const TopNav = () => {
 
   // check if users token is expired
   useEffect(() => {
-    // Check localstorage if user choose darkmode 
-    const currentUser = JSON.parse(localStorage.getItem('jg_user'))?.user;
-    const token = currentUser?.token;
-    if (token) {
-      const decodedToken = decode(token)
-      if (decodedToken.exp * 1000 < new Date().getTime()) {
-        handleLogout()
+    const user = JSON.parse(localStorage.getItem('jg_user'))?.user;
+    if (user) {
+      if (user.expires > new Date().toISOString()) {
+        dispatch(loginSuccess({ userId: user.userId, firstName: user.firstName, email: user.email }))
       } else {
-        const { userId, firstName, lastName, email, isAdmin } = currentUser
-        dispatch(loginSuccess({ userId, firstName, lastName, email, isAdmin }))
+        handleLogout()
       }
     }
-    // eslint-disable-next-line
   }, [location]);
+  console.log("user", user);
   // check if darkmode in localStorage
   useEffect(() => {
     const darkmode = JSON.parse(localStorage.getItem('darkmode'))
