@@ -6,11 +6,9 @@ import { useState } from "react";
 const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemoveProduct }) => {
   const URL = process.env.REACT_APP_BASE_URL;
   const currentUser = useSelector(state => state.user.currentUser);
-  const [quantity, setQuantity] = useState(item.quantity);
   const handleUpdateQuantity = (operation) => {
     if (operation === "inc") {
-      if (quantity < 10) {
-        setQuantity(quantity + 1);
+      if (item.quantity < 10) {
         updateProductQuantity({
           userId: currentUser.userId,
           quantity: item.quantity + 1,
@@ -22,7 +20,6 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
       }
     } else if (operation === "dec") {
       if (item.quantity > 1) {
-        setQuantity(quantity - 1);
         updateProductQuantity({
           quantity: item.quantity - 1,
           cartId: cart.cartId,
@@ -51,7 +48,7 @@ const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemovePro
       <td>
         <Dash size="25px"
           onClick={() => handleUpdateQuantity("dec")} />
-        {quantity}
+        {item.quantity}
         <Plus size="25px" onClick={() => handleUpdateQuantity("inc")} />
       </td>
       <td className="d-none d-md-table-cell">$ {item.price * item.quantity}
