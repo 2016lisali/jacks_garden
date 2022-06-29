@@ -4,13 +4,14 @@ import { useLocation } from "react-router-dom";
 import { Button, Container, Col, Image, Row } from "react-bootstrap";
 import { Cart3, Dash, Plus } from "react-bootstrap-icons";
 import { getCartDetails, addProductToCart, updateProductQuantity } from "../../actions/cartAction";
-import SpinnerDiv from "../SpinnerDiv";
-import Breadcrumbs from "../Breadcrumbs";
-import { getProductById } from "../../api/api";
+import { Breadcrumbs, ProductList, SpinnerDiv } from "../index.js";
+import RecommendProduct from "../ProductList/Product";
+import { getProductById, getProductBySearch } from "../../api/api";
 
 const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState({});
+  const [recommendProducts, setRecommendProducts] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isProductInCart, setIsProductInCart] = useState(false);
@@ -32,6 +33,8 @@ const Product = () => {
         const res = await getProductById(productId)
         console.log(res);
         res.data.length > 0 ? setProduct(res.data[0]) : setProduct(null)
+        const recProducts = await getProductBySearch(null, res?.data[0].category)
+        recProducts.data.length > 0 && setRecommendProducts(recProducts.data.slice(0, 4))
       } catch (error) {
         setProduct(null)
         console.log(error)
@@ -77,9 +80,9 @@ const Product = () => {
 
   const handleQuantity = (type) => {
     if (type === "des") {
-      quantity > 1 && setQuantity(quantity - 1);
+      quantity > 1 && setQuantity(prevValue => prevValue - 1);
     } else {
-      quantity < 10 ? setQuantity(quantity + 1) : alert("max amount is 10 per order");
+      quantity < 10 ? setQuantity(prevValue => prevValue + 1) : alert("max amount is 10 per order");
     }
   }
 
@@ -112,12 +115,10 @@ const Product = () => {
           </div>}
         </Row>
       }
-
-      {/* <Row>
-        <h2>You may also like</h2>
-        <ProductList cat={product.category} />
-      </Row> */}
-
+      <Row className="pe-lg-5 me-lg-5">
+        <h5 className="text-secondary">You may also like</h5>
+        {recommendProducts.map(product => <RecommendProduct product={product} />)}
+      </Row>
     </Container>
   )
 }

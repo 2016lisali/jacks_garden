@@ -5,7 +5,7 @@ import { Search } from "react-bootstrap-icons";
 const Product = ({ product }) => {
   const URL = process.env.REACT_APP_BASE_URL;
   return (
-    <Col xs={6} md={3} className="img-col p-2" key={product.productId}>
+    <Col xs={6} sm={3} className="img-col p-2" key={product.productId}>
       <div className="img-container mb-3">
         <Image src={URL + product.productImage} className="rounded w-100" alt={product.productName} />
         <Link to={`/products/${product.category}/${product.productId}`} state={product}>
