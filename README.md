@@ -92,10 +92,10 @@ The webpage will be served at http://localhost:YOUR_PORT_NUMBER
 - [x] Add Breadcrumb (25/05/2022)
 - [x] Add Sort function for product list (25-05-2022)
 - [x] Add order details modal in 'my account' page (10-06-2022)
+- [x] Add 'You may also like' section in product page (30-06-2022)
 - [ ] Allow anonymous user to add product to shopping cart (15-07-2022)
 - [ ] Add update user details functionality in 'my Account' page (15-07-2022)
 - [ ] Update Stripe (31-07-2022)
 - [ ] Display more images for each product (15-08-2022)
-- [ ] Add 'You may also like' section in product page (15-08-2022)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
