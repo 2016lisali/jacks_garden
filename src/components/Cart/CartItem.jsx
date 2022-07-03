@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { Dash, Plus, Trash } from "react-bootstrap-icons";
 import { Image } from 'react-bootstrap';
-import { useState } from "react";
 
 const CartItem = ({ cart, dispatch, item, updateProductQuantity, handleRemoveProduct }) => {
   const URL = process.env.REACT_APP_BASE_URL;

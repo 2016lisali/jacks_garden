@@ -7,8 +7,7 @@ import { createOrder, createOrderDetails, makePayment, createOrderBillingDetails
 import { updateProductQuantity, removeProductFromCart, emptyShoppingCart } from "../../actions/cartAction";
 import CartItem from "./CartItem";
 import CartSummary from "./CartSummary";
-import SuccessDiv from "../SuccessDiv";
-import Breadcrumbs from "../Breadcrumbs";
+import { Breadcrumbs, SuccessDiv } from "../index";
 
 const KEY = process.env.REACT_APP_STRIPE_KEY;
 
@@ -29,7 +28,7 @@ const Cart = () => {
   const onToken = (token) => {
     setStripeToken(token);
   };
-  console.log(cart);
+
   // scroll to top when navigate to the page
   useEffect(() => {
     document.body.scrollTop = 0;

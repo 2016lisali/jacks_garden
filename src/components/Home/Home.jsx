@@ -18,8 +18,7 @@ const Home = () => {
       {navigator.onLine ?
         <ProductList cat="recommended" /> :
         <div className="container fluid-xl px-3 py-5 offline-div">
-          <p className="fs-5">You're offline now, back to shopping when your network back.
-            Enjoy shopping!</p>
+          <p className="fs-5">You're offline now, take a break and come back when your network is back.</p>
         </div>}
     </>
   )

@@ -9,7 +9,6 @@ const Product = ({ product }) => {
       <div className="img-container mb-3">
         <Image src={URL + product.productImage} className="rounded w-100" alt={product.productName} />
         <Link to={`/products/${product.category}/${product.productId}`} state={product}>
-          {/* <Link to={`/product/${product.productId}`} state={product}> */}
           <div className="overlay d-flex flex-column align-items-center justify-content-center">
             <Search color="white" size="30px" />
             <p>VIEW</p>

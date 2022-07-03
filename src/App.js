@@ -1,13 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import {
-  Announcement, BackToTopBtn, Cart, Footer, Home, Login, MyAccount, Navbar,
+  Announcement, BackToTopBtn, Cart, Footer, Home, Help, Login, MyAccount, Navbar,
   Register, Product, Products, NotFound
-}
-  from './components/index.js';
+} from './components/index.js';
 import "./app.scss";
-import Help from './components/Help.jsx';
-function App() {
 
+function App() {
   return (
     <BrowserRouter>
       <Announcement />

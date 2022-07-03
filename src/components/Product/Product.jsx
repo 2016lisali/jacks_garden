@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Button, Container, Col, Image, Row } from "react-bootstrap";
 import { Cart3, Dash, Plus } from "react-bootstrap-icons";
 import { getCartDetails, addProductToCart, updateProductQuantity } from "../../actions/cartAction";
-import { Breadcrumbs, ProductList, SpinnerDiv } from "../index.js";
+import { Breadcrumbs, SpinnerDiv } from "../index.js";
 import RecommendProduct from "../ProductList/Product";
 import { getProductById, getProductBySearch } from "../../api/api";
 
@@ -24,14 +24,13 @@ const Product = () => {
   const currentPath = location.pathname.split("/");
   const productId = currentPath[currentPath.length - 1];
 
-  // scroll to top when navigate to the page
   useEffect(() => {
+    // scroll to top when navigate to the page
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
     const getProduct = async () => {
       try {
         const res = await getProductById(productId)
-        console.log(res);
         res.data.length > 0 ? setProduct(res.data[0]) : setProduct(null)
         const recProducts = await getProductBySearch(null, res?.data[0].category)
         recProducts.data.length > 0 && setRecommendProducts(recProducts.data.slice(0, 4))
