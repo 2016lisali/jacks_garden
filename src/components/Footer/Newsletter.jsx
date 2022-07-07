@@ -10,18 +10,35 @@ const Newsletter = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const [isFetching, setIsFetching] = useState(false);
   const [isSucceed, setIsSucceed] = useState(false);
-
-  const addToMailList = async (data) => {
+  const APIKEY = process.env.REACT_APP_APILAYER_KEY;
+  const addToMailList = (data) => {
     const formDataJson = JSON.stringify(data);
     setIsFetching(true);
-    try {
-      await addEmail(formDataJson);
-      setIsFetching(false);
-      setIsSucceed(true);
-    } catch (error) {
-      setIsFetching(false);
-      alert(error.response.data || "Can not add your email to the mailing list, please try later");
+    const add = async () => {
+      try {
+        await addEmail(formDataJson);
+        setIsFetching(false);
+        setIsSucceed(true);
+      } catch (error) {
+        setIsFetching(false);
+        alert(error.response.data || "Can not add your email to the mailing list, please try later");
+      }
     }
+    fetch(`https://api.apilayer.com/email_verification/${data.email}`, {
+      method: 'GET',
+      headers: {
+        "apikey": APIKEY
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.isDeliverable) {
+          add()
+        } else {
+          setIsFetching(false);
+          alert("Please enter a deliverable email address.")
+        }
+      });
   }
 
   return (
