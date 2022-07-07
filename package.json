@@ -35,7 +35,9 @@
     "start": "parcel ./public/index.html",
     "build": "parcel build ./public/index.html && cp ./public/_redirects dist/_redirects",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
+
   },
   "eslintConfig": {
     "extends": [
@@ -60,7 +62,7 @@
     "@parcel/transformer-sass": "^2.5.0",
     "@parcel/transformer-webmanifest": "^2.5.0",
     "@testing-library/cypress": "^8.0.3",
-    "cypress": "^10.0.2",
+    "cypress": "^10.3.0",
     "parcel": "^2.5.0",
     "process": "^0.11.10"
   }

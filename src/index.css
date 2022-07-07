@@ -1,0 +1,60 @@
+:root {
+  --colorGreen: #198754;
+  --colorYellow: #fdf3e1;
+  --bgYellow:#fbdfb1;
+  --colorOrange: #c57e0a;
+  --bkg-color: #f8f9fa;
+  --text-color: rgb(35, 42, 39);
+  --anchor-color: rgb(35, 42, 39);
+  --nav-color: #fff;
+}
+
+:root.dark-theme {
+  --colorGreen: #00301a;
+  --colorYellow: rgb(18, 18, 18);
+  --bgYellow:#231702;
+  --bkg-color: #00301a;
+  --text-color:#efefef;
+  --anchor-color: #efefef;
+  --nav-color: rgb(18, 18, 18);
+}
+:root.dark-theme .login-container, :root.dark-theme .register-container, :root.dark-theme .carousel-inner {
+  filter: brightness(0.8) contrast(1.2);
+}
+:root.dark-theme img {
+  filter: brightness(0.8) contrast(1.2);
+}
+:root.dark-theme svg {
+  fill: #efefef;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Urbanist", sans-serif;
+  color: var(--text-color) !important;
+  background-color: var(--bkg-color) !important;
+}
+body .btn:focus, body .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+body a,
+body .nav-link,
+body .btn-link,
+body .navbar-toggler {
+  text-decoration: none;
+  color: var(--anchor-color) !important;
+}
+body a:hover,
+body .nav-link:hover,
+body .btn-link:hover,
+body .navbar-toggler:hover {
+  color: rgb(150, 149, 149) !important;
+}
+body .nav-link.active {
+  color: var(--colorOrange) !important;
+}/*# sourceMappingURL=index.css.map */
