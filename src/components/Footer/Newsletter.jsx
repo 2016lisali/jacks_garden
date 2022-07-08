@@ -14,7 +14,11 @@ const Newsletter = () => {
   const addToMailList = (data) => {
     const formDataJson = JSON.stringify(data);
     setIsFetching(true);
+<<<<<<< HEAD
     const addEmail = async () => {
+=======
+    const add = async () => {
+>>>>>>> 2ad5736a064bbf802db739b9e9e306a83e2bf382
       try {
         await addEmail(formDataJson);
         setIsFetching(false);
@@ -33,7 +37,11 @@ const Newsletter = () => {
       .then(res => res.json())
       .then(data => {
         if (data.isDeliverable) {
+<<<<<<< HEAD
           addEmail()
+=======
+          add()
+>>>>>>> 2ad5736a064bbf802db739b9e9e306a83e2bf382
         } else {
           setIsFetching(false);
           alert("Please enter a deliverable email address.")
