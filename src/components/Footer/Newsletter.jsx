@@ -32,7 +32,7 @@ const Newsletter = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.isDeliverable) {
+        if (data.is_deliverable) {
           add()
         } else {
           setIsFetching(false);
