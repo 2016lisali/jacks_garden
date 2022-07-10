@@ -32,7 +32,7 @@ const Newsletter = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log("data.is_deliverable", data.is_deliverable)
+        console.log("data.is_deliverable", data)
         if (data.is_deliverable) {
           add()
         } else {
