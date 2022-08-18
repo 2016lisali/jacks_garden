@@ -1,312 +1,324 @@
 @import "./index.scss";
 
 .announcement {
-  background-color: var(--colorGreen);
+    background-color: var(--colorGreen);
 }
 
 .btp-btn {
-  z-index: 99;
+    z-index: 99;
 }
 
 .cart {
-  background-color: var(--bkg-color);
-  .cart-details {
-    .table {
-      color: var(--text-color)
-    }
-    svg {
-      cursor: pointer;
+    background-color: var(--bkg-color);
+    .cart-details {
+        .table {
+            color: var(--text-color);
+        }
+        svg {
+            cursor: pointer;
 
-      &:hover {
-        transform: scale(1.2);
-      }
-      &:active {
-        transform: scale(0.9);
-      }
+            &:hover {
+                transform: scale(1.2);
+            }
+            &:active {
+                transform: scale(0.9);
+            }
+        }
     }
-  }
-  .processing {          
-    z-index: 3;
-    p {
-      font-size: 20px;
+    .processing {
+        z-index: 3;
+        p {
+            font-size: 20px;
+        }
     }
-  }
-  // .order-summary {
-  //   height: 450px;
-  // }
+    // .order-summary {
+    //   height: 450px;
+    // }
 }
 
 .category-container {
-  h3 {
-    color: var(--text-color);
-  }
-  .card {
-  overflow: hidden;
-  border: none;
-
-  .cateImg {
-    height: 400px;
-    object-fit: cover;
-    @include mobile {
-      height: 350px;
+    h3 {
+        color: var(--text-color);
     }
-  }
+    .card {
+        overflow: hidden;
+        border: none;
 
-  .imgOverlay {
-    background-color: rgba(0, 0, 0, 0.2);
-    width: 100%;
-    height: 100%;
+        .cateImg {
+            height: 400px;
+            object-fit: cover;
+            @include mobile {
+                height: 350px;
+            }
+        }
 
-    .card-title {
-      font-size: 30px;
-      font-weight: 600;
-      margin-bottom: 20px;
+        .imgOverlay {
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: 100%;
+
+            .card-title {
+                font-size: 30px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
-
-    .btn {
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-}
 }
 
 .feature-container {
-  background-color: var(--bkg-color);
+    background-color: var(--bkg-color);
 }
 
 .footer {
-  background-color: var(--nav-color);
-  color: var(--text-color);
-  .newsletter-container {
-    
-    button {
-      width: 130px;
+    background-color: var(--nav-color);
+    color: var(--text-color);
+    .newsletter-container {
+        button {
+            width: 130px;
+        }
     }
-  }
 }
 .img-container {
-  position: relative;
-  img {
-    filter: brightness(.9);
-  }
-  .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background-color: black;
-    &:hover {
-      opacity: 0.3;
-      cursor: pointer;
+    position: relative;
+    img {
+        filter: brightness(0.9);
     }
-  }
+    .overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-color: black;
+        &:hover {
+            opacity: 0.3;
+            cursor: pointer;
+        }
+    }
 }
 .login-container {
-  position: relative;
-  height: 90vh;
-  min-height: 500px;
-  background: linear-gradient(rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)),
-    url("./assets/login_bg.jpg") center no-repeat;
-  background-size: cover;
+    position: relative;
+    height: 90vh;
+    min-height: 500px;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+        ),
+        url("./assets/login_bg.jpg") center no-repeat;
+    background-size: cover;
 
-  .login-form {
-    background-color: var(--bkg-color) !important;
-    max-width: 450px;
-    width: 95%;
+    .login-form {
+        background-color: var(--bkg-color) !important;
+        max-width: 450px;
+        width: 95%;
 
-    label {
-      color: black !important;
-      z-index: 99;
+        label {
+            color: black !important;
+            z-index: 99;
+        }
     }
-  }
 
-  .spinner-modal {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+    .spinner-modal {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }
 .navbar {
-  top: 29px !important;
-  height:67px;
-  background-color: var(--nav-color);
-  
-  .nav-container {
+    top: 29px !important;
+    height: 67px;
     background-color: var(--nav-color);
-  }
-  .navbar-toggler {
-    background-color: white;
-    padding: 4px !important;
-    &:active, &:focus {
-        outline: none;
-        box-shadow: none;
+
+    .nav-container {
+        background-color: var(--nav-color);
     }
-  }
+    .navbar-toggler {
+        background-color: white;
+        padding: 4px !important;
+        &:active,
+        &:focus {
+            outline: none;
+            box-shadow: none;
+        }
+    }
     .cart-icon {
-      position: relative;
+        position: relative;
 
-      &:hover {
-        transform: scale(1.1)
-      }
+        &:hover {
+            transform: scale(1.1);
+        }
 
-      &:active {
-        transform: scale(0.9)
-      }
+        &:active {
+            transform: scale(0.9);
+        }
 
-      .badge {
-        width: 16px;
-        height: 16px;
-      }
-    }  
+        .badge {
+            width: 16px;
+            height: 16px;
+        }
+    }
 
-  .search-bar {
-    width: 280px;
-    .search-error {
-      bottom: -25px;
-      left: 0;
-      z-index: 99;
+    .search-bar {
+        width: 280px;
+        .search-error {
+            bottom: -25px;
+            left: 0;
+            z-index: 99;
+        }
     }
-  }
-  .dropdown {
-    .dropdown-toggle::after {
-      display: none;
+    .dropdown {
+        .dropdown-toggle::after {
+            display: none;
+        }
+        .dropdown-menu {
+            background-color: var(--bkg-color) !important;
+        }
     }
-    .dropdown-menu {
-      background-color: var(--bkg-color) !important;
+    .dropdown .dropdown-menu .dropdown-item {
+        &:focus {
+            outline: none;
+        }
+        &:active {
+            outline: none;
+        }
     }
-  }
-  .dropdown .dropdown-menu .dropdown-item {
-    &:focus {
-      outline: none;
-    }
-    &:active{
-      outline: none;
-    }
-  }
 }
 .navbar + div {
-  height: 95px;
+    height: 95px;
 }
 .newsletter-container {
-  background-color: var(--bgYellow);
-  input {
-    max-width: 350px; 
-  }
+    background-color: var(--bgYellow);
+    input {
+        max-width: 350px;
+    }
 }
 .offline-div {
-  background-color: var(--bkg-color);
-  color: var(--text-color);
+    background-color: var(--bkg-color);
+    color: var(--text-color);
 }
 .productList-container {
-  background-color: var(--bkg-color);
-  p {
-    font-size: 24px;
-  }
+    background-color: var(--bkg-color);
+    p {
+        font-size: 24px;
+    }
 }
 
 .product-container {
-  .quantity {
-    height: 30px;
-    width: 30px;
-  }
-  .btn {
-    width: 160px;
-  }
-  svg {
-    &:hover {
-      transform: scale(1.1);
+    .quantity {
+        height: 30px;
+        width: 30px;
     }
-    &:active {
-      transform: scale(0.9);
+    .btn {
+        width: 160px;
     }
-  }
+    svg {
+        &:hover {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(0.9);
+        }
+    }
 }
 .register-container {
-  background: linear-gradient(rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)),
-    url("./assets/register_bg.jpg") center no-repeat;
-  background-size: cover;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+        ),
+        url("./assets/register_bg.jpg") center no-repeat;
+    background-size: cover;
 
-  .register-form {
-    background-color: var(--bkg-color) !important;
-    .form-floating {
-      label {
-        color: black !important;
-        z-index: 99;
-      }
+    .register-form {
+        background-color: var(--bkg-color) !important;
+        .form-floating {
+            label {
+                color: black !important;
+                z-index: 99;
+            }
+        }
     }
-
-  }
 }
 .slideContainer {
-  height: calc(100vh - 96px);
-  position: relative;
-  
-  .info {
-    position: absolute;
-    top:0;
-    z-index: 5;
-    height: 100%;
-    left: 0; 
-    right: 0; 
-    margin: 0 auto;
-    
-    .carouselInfo { 
-      color: white;
-      h1 {
-        font-size: 70px;
-        @include mobile {
-          font-size: 50px;
+    height: calc(100vh - 96px);
+    position: relative;
+
+    .info {
+        position: absolute;
+        top: 0;
+        z-index: 5;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+
+        .carouselInfo {
+            color: white;
+            h1 {
+                font-size: 70px;
+                @include mobile {
+                    font-size: 50px;
+                }
+            }
         }
-      }
     }
-  }
-  
 
-  .carousel {
-    height: 100%;
+    .carousel {
+        height: 100%;
+        .carousel-indicators {
+            z-index: 99;
+        }
+        .carousel-inner {
+            height: 100%;
+            .slide1 {
+                height: 100%;
+                background: linear-gradient(
+                        rgba(0, 0, 0, 0.2),
+                        rgba(0, 0, 0, 0.2)
+                    ),
+                    url("./assets/slide1.jpg") no-repeat center;
+                background-size: cover;
+                color: white;
+            }
+
+            .slide2 {
+                height: 100%;
+                background: linear-gradient(
+                        rgba(0, 0, 0, 0.2),
+                        rgba(0, 0, 0, 0.2)
+                    ),
+                    url("./assets/slide2.jpg") no-repeat center;
+                background-size: cover;
+                color: white;
+            }
+
+            .slide3 {
+                height: 100%;
+                background: linear-gradient(
+                        rgba(0, 0, 0, 0.2),
+                        rgba(0, 0, 0, 0.2)
+                    ),
+                    url("./assets/slide3.jpg") no-repeat bottom;
+                background-size: cover;
+                color: white;
+            }
+        }
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px;
+        cursor: pointer;
+        z-index: 99;
+    }
     .carousel-indicators {
-      z-index:99;
+        z-index: 99;
     }
-    .carousel-inner {
-      height: 100%;
-      .slide1 {
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("./assets/slide1.jpg") no-repeat center;
-        background-size: cover;
-        color: white;
-      }
-
-      .slide2 {
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("./assets/slide2.jpg") no-repeat center;
-        background-size: cover;
-        color: white;
-      }
-
-      .slide3 {
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url("./assets/slide3.jpg") no-repeat bottom;
-        background-size: cover;
-        color: white;
-      }
-    }
-  }
-  .carousel-control-prev,
-  .carousel-control-next
-   {
-    width: 50px;
-    cursor: pointer;
-    z-index: 99;
-  }
-  .carousel-indicators {
-    z-index: 99;
-  }
 }
 .success-div {
-  height: 160px;
+    height: 160px;
 }
-
