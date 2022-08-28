@@ -1,0 +1,5 @@
+# Ignore artifacts:
+coverage
+dist
+.parcel-cache
+.log

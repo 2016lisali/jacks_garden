@@ -1,72 +1,71 @@
-
 :root {
-  --colorGreen: #198754;
-  --colorYellow: #fdf3e1;
-  --bgYellow:#fbdfb1;
-  --colorOrange: #c57e0a;
-  --bkg-color: #f8f9fa;
-  --text-color: rgb(35, 42, 39);
-  --anchor-color: rgb(35, 42, 39);
-  --nav-color: #fff;
+    --colorGreen: #198754;
+    --colorYellow: #fdf3e1;
+    --bgYellow: #fbdfb1;
+    --colorOrange: #c57e0a;
+    --bkg-color: #f8f9fa;
+    --text-color: rgb(35, 42, 39);
+    --anchor-color: rgb(35, 42, 39);
+    --nav-color: #fff;
 }
 :root.dark-theme {
-  --colorGreen: #00301a;
-  --colorYellow: rgb(18, 18, 18);
-  --bgYellow:#231702;
-  --bkg-color: #00301a;
-  --text-color:#efefef;
-  --anchor-color: #efefef;
-  --nav-color: rgb(18, 18, 18);
-  
-  .login-container, .register-container, .carousel-inner {
-    filter: brightness(.8) contrast(1.2);
-  }
+    --colorGreen: #00301a;
+    --colorYellow: rgb(18, 18, 18);
+    --bgYellow: #231702;
+    --bkg-color: #00301a;
+    --text-color: #efefef;
+    --anchor-color: #efefef;
+    --nav-color: rgb(18, 18, 18);
 
-  img {
-    filter: brightness(.8) contrast(1.2);
-  }
+    .login-container,
+    .register-container,
+    .carousel-inner {
+        filter: brightness(0.8) contrast(1.2);
+    }
 
-  svg {
-    fill: #efefef;
-  }
+    img {
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    svg {
+        fill: #efefef;
+    }
 }
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: 'Urbanist', sans-serif;
-  color: var(--text-color) !important;
-  background-color: var(--bkg-color) !important;
+    margin: 0;
+    font-family: "Urbanist", sans-serif;
+    color: var(--text-color) !important;
+    background-color: var(--bkg-color) !important;
 
-  .btn:focus,.btn:active {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-
-  a,
-  .nav-link,
-  .btn-link,
-  .navbar-toggler {
-    text-decoration: none;
-    color: var(--anchor-color) !important;
-
-    &:hover {
-      color: rgb(150, 149, 149) !important;
+    .btn:focus,
+    .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
     }
-  }
 
-  .nav-link.active {
-    color: var(--colorOrange) !important;
-  }
+    a,
+    .nav-link,
+    .btn-link,
+    .navbar-toggler {
+        text-decoration: none;
+        color: var(--anchor-color) !important;
 
+        &:hover {
+            color: rgb(150, 149, 149) !important;
+        }
+    }
+
+    .nav-link.active {
+        color: var(--colorOrange) !important;
+    }
 }
 
 @mixin mobile {
-  @media (max-width: 768px) {
-    @content
-  }
+    @media (max-width: 768px) {
+        @content;
+    }
 }
-
-
